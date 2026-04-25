@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>民泊ハウスガイド - フォルモント住之江 101</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* A4 Page Styling */
+        .a4-page {
+            width: 100%;
+            max-width: 210mm;
+            min-height: 297mm; /* Web閲覧を考慮し、固定高さではなくmin-heightに変更 */
+            background: white;
+            margin: 20px auto;
+            padding: 12mm 18mm 25mm 18mm; /* フッターと被らないように下部の余白を確保 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media screen and (max-width: 768px) {
+            .a4-page {
+                margin: 10px auto;
+                padding: 10px 10px 50px 10px;
+                min-height: auto;
+                border-radius: 12px;
+            }
+            .page-footer {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+            body { background: none; margin: 0; -webkit-print-color-adjust: exact; }
+            .a4-page { 
+                margin: 0 !important; 
+                box-shadow: none !important; 
+                width: 210mm !important;
+                height: 297mm !important;
+                page-break-after: always !important; 
+                display: flex !important; /* blockからflexに変更してレイアウト崩れを防止 */
+            }
+            .no-print { display: none !important; }
+        }
+
+        /* Multilingual Text Styling */
+        .t-jp { font-weight: 900; font-size: 1.1rem; color: #1e3a8a; display: block; line-height: 1.4; margin-bottom: 2px; }
+        .t-en { font-size: 0.9rem; color: #4b5563; display: block; font-weight: 700; line-height: 1.3; margin-bottom: 1px; }
+        .t-cn { font-size: 0.85rem; color: #6b7280; display: block; font-weight: 500; line-height: 1.3; margin-bottom: 1px; }
+        .t-kr { font-size: 0.85rem; color: #6b7280; display: block; font-weight: 500; line-height: 1.3; }
+
+        .section-title { border-bottom: 5px solid #2563eb; padding-bottom: 0.5rem; margin-bottom: 1rem; color: #1e3a8a; font-weight: 900; }
+        /* フッターを絶対配置に変更して位置を完全固定 */
+        .page-footer { position: absolute; bottom: 12mm; left: 18mm; right: 18mm; padding-top: 10px; border-top: 2px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Tablet & Remote Mockups */
+        .tablet-mockup {
+            background: #111;
+            border: 5px solid #333;
+            border-radius: 12px;
+            padding: 8px;
+            width: 210px;
+            height: 145px;
+            position: relative;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        .manekey-logo { font-size: 8px; position: absolute; top: 6px; left: 12px; line-height: 1; }
+        .manekey-title { font-size: 10px; text-align: center; margin-top: 22px; font-weight: bold; line-height: 1.3; }
+        .manekey-btn-row-1 { display: flex; justify-content: center; gap: 8px; margin-top: 14px; padding: 0 15px; }
+        .manekey-btn-row-2 { display: flex; justify-content: center; gap: 6px; margin-top: 8px; padding: 0 10px; }
+        .manekey-btn { background: #2a2a2a; border-radius: 4px; font-size: 8px; padding: 6px 0; text-align: center; font-weight: bold; flex: 1; border: 1px solid #444; }
+
+        .remote-mockup {
+            background: #f9fafb;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            padding: 10px;
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .remote-btn { font-size: 11px; font-weight: bold; padding: 6px 4px; border-radius: 4px; text-align: center; border: 1px solid #9ca3af; }
+        
+        .spot-card { border: 3px solid #f3f4f6; border-radius: 1.25rem; padding: 1.25rem; background: #fff; }
+        .spot-tag { font-size: 12px; font-weight: 900; background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 9999px; display: inline-block; margin-bottom: 6px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- PAGE 1: COVER & WELCOME -->
+    <div class="a4-page">
+        <div class="flex-1 flex flex-col items-center justify-center text-center">
+            <div class="w-full max-w-lg h-56 rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl border-4 border-white shrink-0">
+                <img src="assets/images/cover.jpg" alt="Cover Image" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x400?text=Cover+Image'">
+            </div>
+            <h1 class="text-6xl font-black text-blue-900 mb-4 tracking-tighter">HOUSE GUIDE</h1>
+            <p class="text-2xl font-bold text-gray-500 mb-12 tracking-widest uppercase italic">Formont Suminoe 101</p>
+            
+            <div class="w-full max-w-xl space-y-8">
+                <div class="bg-blue-50 p-8 rounded-[2rem] border-2 border-blue-100 shadow-sm text-left">
+                    <p class="t-jp text-2xl mb-4">🌸 ようこそ大阪へ！</p>
+                    <p class="t-en text-xl">Welcome to Osaka! Have a wonderful stay.</p>
+                    <p class="t-cn text-lg">欢迎来到大阪！祝您入住愉快。</p>
+                    <p class="t-kr text-lg">오사카에 오신 것을 환영합니다! 즐거운 시간 되세요.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 1 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 2: BASIC INFO & WI-FI -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3">
+            <span class="text-blue-600">🏠</span> 1. Information & Wi-Fi / 基本情報
+        </h3>
+        
+        <div class="space-y-6 flex-1">
+            <div class="border-4 border-blue-50 rounded-[2rem] p-8 bg-white shadow-sm flex items-center justify-between">
+                <div>
+                    <span class="t-jp">住所</span><span class="t-en">Address</span><span class="t-cn">地址</span><span class="t-kr">주소</span>
+                    <p class="font-black text-2xl mt-3 text-blue-900 leading-tight">
+                        大阪市住之江区粉浜3丁目7-20<br>フォルモント住之江 101
+                    </p>
+                    <div class="text-xs text-gray-500 font-bold mt-3 space-y-1">
+                        <p>3-7-20 Kohama, Suminoe-ku, Osaka, 101</p>
+                        <p>大阪市住之江区粉浜3-7-20 101室</p>
+                        <p>오사카시 스미노에구 고하마 3-7-20 101호</p>
+                    </div>
+                </div>
+                <!-- 周辺マップ画像 -->
+                <div class="w-36 h-36 rounded-2xl overflow-hidden flex items-center justify-center shrink-0 border-4 border-blue-50 shadow-sm ml-4 bg-white">
+                    <img src="assets/images/map.jpg" alt="Map Guide" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/150x150?text=Map'">
+                </div>
+            </div>
+
+            <div class="bg-blue-600 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl">
+                <h4 class="text-2xl font-black mb-6 border-b-2 border-blue-400 pb-2 uppercase tracking-widest flex items-center gap-3 relative z-10">
+                    <span>📶 FREE WI-FI</span>
+                </h4>
+                <div class="grid grid-cols-2 gap-6 relative z-10">
+                    <div class="space-y-5">
+                        <div>
+                            <span class="text-xs uppercase font-black opacity-80 tracking-wider">SSID / ネットワーク</span>
+                            <span class="text-2xl font-mono font-black block bg-blue-700/50 px-4 py-2 rounded-xl mt-1 border-2 border-blue-400/30">Guest_Room101</span>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase font-black opacity-80 tracking-wider">Password / パスワード</span>
+                            <span class="text-2xl font-mono font-black block bg-white text-blue-900 px-4 py-2 rounded-xl mt-1 shadow-xl border-2 border-white">KohamaStay101</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center bg-white p-4 rounded-2xl border-4 border-blue-400/20">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WIFI%3AT%3AWPA%3BS%3AGuest_Room101%3BP%3AKohamaStay101%3B%3B" class="w-32 h-32">
+                        <span class="text-blue-900 text-[10px] font-black mt-2 uppercase tracking-widest">Scan to Connect</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6 border-t-2 border-blue-400/50 pt-5 relative z-10">
+                    <p class="text-xs font-black mb-2 opacity-90 tracking-wide">
+                        ※SSIDが見つからない場合 / If SSID is not found / 若找不到SSID / SSID를 찾을 수 없는 경우:
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm font-mono font-black">
+                        <div class="bg-blue-700/50 px-3 py-2 rounded-xl border-2 border-blue-400/30 flex items-center">
+                            <span class="text-[10px] opacity-80 mr-2 font-sans">2.4GHz</span>Guest_Room101_2_4G
+                        </div>
+                        <div class="bg-blue-700/50 px-3 py-2 rounded-xl border-2 border-blue-400/30 flex items-center">
+                            <span class="text-[10px] opacity-80 mr-2 font-sans">5GHz</span>Guest_Room101_5G
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 2 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 3: ENTRANCE (Key, Delivery Box, Auto-lock) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3">
+            <span class="text-blue-600">🔑</span> 2. Entrance / 入室方法 <span class="text-sm text-blue-500 font-bold ml-2">/ 门禁 / 입실 방법</span>
+        </h3>
+        
+        <div class="space-y-4 flex-1 flex flex-col">
+            <!-- 鍵の受け取り方法 -->
+            <div class="bg-gray-50 p-6 rounded-[2rem] border-2 border-gray-100 relative shadow-sm">
+                <span class="t-jp mb-2 text-xl border-b-2 border-gray-200 pb-2">鍵の受け取り方法 / Key Access</span>
+                <div class="text-[14px] font-bold text-gray-700 mt-4 leading-relaxed">
+                    玄関外のキーボックスから鍵を取り出してください。暗証番号は予約詳細をご確認ください。
+                    <span class="t-en mt-1 block opacity-80">Get the key from the lockbox outside. See reservation details for code.</span>
+                    <span class="t-cn block opacity-80">请从门口的密码箱取出钥匙。密码请查看预约详情。</span>
+                    <span class="t-kr block opacity-80">현관 밖 키박스에서 열쇠를 꺼내주세요. 비밀번호는 예약 상세 정보 확인.</span>
+                </div>
+            </div>
+
+            <!-- 宅配ボックス禁止 -->
+            <div class="bg-red-50 p-6 rounded-[2rem] border-4 border-red-200 text-center shadow-sm">
+                <span class="text-red-600 font-black text-2xl block mb-2 flex items-center justify-center gap-2"><span>🚫</span> 宅配ボックスは使用禁止です</span>
+                <span class="text-sm text-red-700 font-bold block leading-relaxed">
+                    Delivery boxes are strictly for residents only. Please do not use them.<br>
+                    快递柜仅限常住居民使用，请勿使用。 / 무인 택배함은 거주자 전용이므로 사용을 금합니다.
+                </span>
+            </div>
+
+            <!-- オートロック解錠 -->
+            <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm mt-auto">
+                <h4 class="t-jp text-xl mb-4 border-b-2 pb-2">🚪 オートロック・インターホン / Intercom & Auto-lock</h4>
+                <div class="flex gap-4 items-center">
+                    <div class="flex gap-2 w-5/12 h-44 shrink-0">
+                        <div class="flex-1 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center p-1.5 relative">
+                            <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Entrance</span>
+                            <img src="assets/images/entrance.jpg" alt="エントランス" class="max-w-full max-h-full object-cover" onerror="this.src='https://placehold.co/300x400?text=Entrance'">
+                        </div>
+                        <div class="flex-1 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center p-1.5 relative">
+                            <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Room</span>
+                            <img src="assets/images/intercom.jpg" alt="インターホン" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/300x400?text=Intercom'">
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-1.5 text-center text-xs font-black uppercase mb-3">
+                            <div class="flex-1 bg-white p-2 border-2 border-gray-100 rounded-xl shadow-sm">
+                                <span class="text-blue-600 block text-[9px] mb-0.5">STEP 1</span>
+                                Call 101<br>「101」呼出<br>
+                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">呼叫101 / 호출</span>
+                            </div>
+                            <div class="text-blue-300 text-sm">▶</div>
+                            <div class="flex-1 bg-blue-50 p-2 border-2 border-blue-100 rounded-xl shadow-sm">
+                                <span class="text-blue-600 block text-[9px] mb-0.5">STEP 2</span>
+                                TALK<br>通話<br>
+                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">通话 / 통화</span>
+                            </div>
+                            <div class="text-blue-300 text-sm">▶</div>
+                            <div class="flex-1 bg-green-50 p-2 border-2 border-green-100 rounded-xl shadow-sm">
+                                <span class="text-green-600 block text-[9px] mb-0.5">STEP 3</span>
+                                OPEN<br>解錠 🔑<br>
+                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">解锁 / 열림</span>
+                            </div>
+                        </div>
+                        <div class="text-[9px] text-gray-600 font-bold leading-relaxed space-y-1">
+                            <p>【JP】エントランスで「101」を呼び出し、室内の「通話(TALK)」で応答後、「OPEN」で解錠します。</p>
+                            <p>【EN】Call 101 from entrance. Press "TALK" to answer, then "OPEN" to unlock.</p>
+                            <p>【CN】在入口呼叫101。按下“通話”接听后，按“OPEN”解锁大门。</p>
+                            <p>【KR】입구에서 101호 호출 후, 실내에서 "通話"로 응답, "OPEN"을 눌러 해제합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 3 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 4: CHECK-IN (maneKEY) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3">
+            <span class="text-blue-600">✅</span> 3. Check-in / パスポート登録 <span class="text-sm text-blue-500 font-bold ml-2">/ 护照登记 / 여권 등록</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col justify-center">
+            <div class="bg-amber-50 border-4 border-amber-200 rounded-[2.5rem] p-8 relative shadow-sm">
+                <div class="absolute -top-5 left-10 bg-amber-500 text-white px-8 py-2 rounded-full font-black text-base uppercase shadow-md flex gap-2">
+                    Important / 重要事項 <span class="opacity-80">/ 重要事项 / 중요 사항</span>
+                </div>
+                <h4 class="text-3xl text-amber-900 mb-6 mt-4 font-black underline decoration-amber-200">
+                    <span class="t-jp inline-block mr-2">パスポート登録</span> 
+                    <span class="text-lg opacity-80">(Passport Registration)</span>
+                </h4>
+                
+                <div class="flex gap-6 items-center border-b-2 border-amber-200 pb-6 mb-8">
+                    <!-- 実際のタブレット画像を追加 -->
+                    <div class="w-5/12 h-64 rounded-2xl overflow-hidden border-4 border-white shadow-md shrink-0 bg-gray-100 flex items-center justify-center">
+                        <img src="assets/images/manekey.jpg" alt="maneKEY Tablet" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/400x500?text=Tablet'">
+                    </div>
+                    <div class="flex-1 grid grid-cols-1 gap-2.5 text-sm font-bold text-amber-800 leading-relaxed">
+                        <p>【JP】日本の法律により、宿泊者全員の情報登録が義務付けられています。</p>
+                        <p>【EN】Japanese law requires all guests to register their information.</p>
+                        <p>【CN】根据日本法律，所有房客都必须登记信息。</p>
+                        <p>【KR】일본 법에 따라 모든 숙박객의 정보 등록이 의무화되어 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-around gap-4">
+                    <div class="text-center">
+                        <div class="tablet-mockup mx-auto mb-3">
+                            <div class="manekey-logo">🐥 maneKEY</div>
+                            <div class="manekey-title">言語を選択してください<br>Select Language</div>
+                            <div class="manekey-btn-row-1">
+                                <div class="manekey-btn">日本語</div><div class="manekey-btn">ENGLISH</div>
+                            </div>
+                            <div class="manekey-btn-row-2">
+                                <div class="manekey-btn">简体中文</div><div class="manekey-btn">繁體中文</div><div class="manekey-btn">한국어</div>
+                            </div>
+                        </div>
+                        <p class="text-xs font-black mt-4 text-amber-900 uppercase tracking-widest">1. 言語 / Language / 语言 / 언어</p>
+                    </div>
+                    <div class="text-amber-300 text-4xl font-black">➔</div>
+                    <div class="text-center">
+                        <div class="tablet-mockup mx-auto bg-gray-900 flex items-center justify-center p-3 mb-3">
+                            <div class="w-full h-full bg-white rounded-lg border-4 border-dashed border-red-500 flex items-center justify-center">
+                                <span class="text-red-500 font-black italic text-sm">SCAN PASSPORT</span>
+                            </div>
+                        </div>
+                        <p class="text-xs font-black mt-4 text-amber-900 uppercase tracking-widest">2. スキャン / Scan / 扫描 / 촬영</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 4 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 5: HOUSE RULES -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-red-700 border-red-700">
+            <span>⚠️</span> 4. House Rules / ハウスルール <span class="text-sm text-red-500 font-bold ml-2">/ 房屋守则 / 숙소 이용규칙</span>
+        </h3>
+
+        <div class="space-y-6">
+            <div class="flex gap-6 border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm items-center">
+                <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center text-5xl shrink-0 shadow-inner">🥿</div>
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-red-800">No Shoes / 土足厳禁 <span class="text-sm text-red-600 ml-2">/ 严禁穿鞋 / 신발 착용 금지</span></h4>
+                    <div class="mt-2 space-y-1">
+                        <p class="t-jp">靴を脱いでください。室内では靴を履かないでください。</p>
+                        <p class="t-en font-bold">Please take off your shoes at the entrance.</p>
+                        <p class="t-cn">请在玄关脱鞋。室内严禁穿鞋。</p>
+                        <p class="t-kr">현관에서 신발을 벗어주세요. 실내에서는 신발 착용 금지입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-6 border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm items-center">
+                <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-5xl shrink-0 shadow-inner">🚭</div>
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-red-800">No Smoking / 完全禁煙 <span class="text-sm text-red-600 ml-2">/ 严禁吸烟 / 절대 금연</span></h4>
+                    <div class="mt-2 space-y-1">
+                        <p class="t-jp">室内、バルコニー、共用部すべて禁煙です。</p>
+                        <p class="t-en font-bold">NO SMOKING in the room, balcony, or common areas.</p>
+                        <p class="t-cn">室内、阳台及公共区域严禁吸烟。</p>
+                        <p class="t-kr">실내, 발코니, 공용 공간을 포함하여 전 구역 금연입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-6 border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm items-center">
+                <div class="w-24 h-24 bg-amber-100 rounded-full flex items-center justify-center text-5xl shrink-0 shadow-inner">🤫</div>
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-amber-800">Quiet Hours / 夜間静粛 <span class="text-sm text-amber-600 ml-2">/ 保持安静 / 야간 정숙</span></h4>
+                    <div class="mt-2 space-y-1">
+                        <p class="t-jp">21:00 以降はお静かにお願いします。騒音禁止です。</p>
+                        <p class="t-en font-bold">Keep noise down after 9:00 PM. No loud noises.</p>
+                        <p class="t-cn">21:00 以后请保持安静。严禁大声喧哗。</p>
+                        <p class="t-kr">오후 9시 이후에는 정숙해 주세요. 소음 금지입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-6 border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm items-center">
+                <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center shrink-0 shadow-inner relative">
+                    <span class="text-[3.5rem] -ml-3">🚪</span>
+                    <span class="text-4xl absolute bottom-2 right-2 drop-shadow-md transform -rotate-12">🔑</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-blue-800">Security / 施錠・防犯 <span class="text-sm text-blue-600 ml-2">/ 注意防盗 / 보안</span></h4>
+                    <div class="mt-2 space-y-1">
+                        <p class="t-jp">外出時は施錠してください。エアコン使用時は窓を閉めて。</p>
+                        <p class="t-en font-bold">Always lock the door when leaving. Close windows for AC.</p>
+                        <p class="t-cn">外出时请务必锁门。开启空调时请关闭窗户。</p>
+                        <p class="t-kr">외출 시 반드시 문을 잠가주세요. 에어컨 사용 시 창문을 닫으세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 5 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 6: GARBAGE GUIDE -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3">
+            <span class="text-blue-600">🗑️</span> 5. Garbage / ゴミの分別 <span class="text-sm text-blue-500 font-bold ml-2">/ 垃圾分类 / 쓰레기 분리수거</span>
+        </h3>
+
+        <div class="space-y-4">
+            <div class="bg-blue-50 p-6 rounded-[2rem] border-2 border-blue-100 shadow-sm">
+                <p class="text-xl font-black text-blue-900 text-center mb-3 uppercase tracking-wider">Do not leave garbage outside! <br><span class="text-base">/ 请勿放室外！ / 밖에 두지 마세요!</span></p>
+                <div class="bg-red-600 text-white text-base font-black p-4 rounded-xl text-center mb-4 shadow-md">
+                    ゴミは絶対に玄関の外（共用廊下）に出さないでください！
+                    <span class="block text-xs font-bold mt-1">Please keep all garbage inside your room until check-out.</span>
+                    <span class="block text-xs font-bold">请勿将垃圾放在室外。 / 절대로 쓰레기를 밖에 내놓지 마세요.</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Burnable (SVG) -->
+                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-14 h-14 mb-3 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/>
+                        </svg>
+                        <p class="t-jp text-center text-sm">可燃ゴミ</p>
+                        <p class="t-en text-center text-xs">Burnable</p>
+                        <p class="t-cn text-center text-xs">可燃物</p>
+                        <p class="t-kr text-center text-xs">가연성</p>
+                    </div>
+                    <!-- Plastic (SVG) -->
+                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-14 h-14 mb-3 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+                        </svg>
+                        <p class="t-jp text-center text-sm">プラ・容器</p>
+                        <p class="t-en text-center text-xs">Plastic</p>
+                        <p class="t-cn text-center text-xs">塑料</p>
+                        <p class="t-kr text-center text-xs">플라스틱</p>
+                    </div>
+                    <!-- Can / Glass (SVG) -->
+                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-14 h-14 mb-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+                        </svg>
+                        <p class="t-jp text-center text-sm">缶・ビン</p>
+                        <p class="t-en text-center text-xs">Can / Glass</p>
+                        <p class="t-cn text-center text-xs">罐 · 瓶</p>
+                        <p class="t-kr text-center text-xs">캔 · 병</p>
+                    </div>
+                    <!-- Pet Bottle (SVG) -->
+                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-14 h-14 mb-3 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15.2 6.3V4.5c0-.8-.7-1.5-1.5-1.5H10c-.8 0-1.5.7-1.5 1.5v1.8c-.8.2-1.5 1-1.5 1.8v11.9c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8.1c0-.8-.7-1.6-1.5-1.8z"/>
+                            <path d="M10 3h4"/><path d="M7 11h10"/><path d="M7 15h10"/>
+                        </svg>
+                        <p class="t-jp text-center text-sm">ペットボトル</p>
+                        <p class="t-en text-center text-xs">Pet Bottle</p>
+                        <p class="t-cn text-center text-xs">塑料瓶</p>
+                        <p class="t-kr text-center text-xs">페트병</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white">
+                <h4 class="t-jp text-xl mb-4 border-b-2 pb-2">🧃 ペットボトルの出し方 / PET Bottles <span class="text-sm ml-2 font-bold text-gray-500">/ 处理方法 / 버리는 법</span></h4>
+                <div class="flex gap-6 items-center px-4">
+                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-sm font-black mb-1 uppercase text-blue-600">1. CAP</div>
+                        <div class="text-[11px] text-gray-600 font-black">
+                            キャップを外す<br>
+                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Remove Cap / 拧下盖子 / 뚜껑 제거</span>
+                        </div>
+                    </div>
+                    <div class="text-gray-300 text-2xl font-black">▶</div>
+                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-sm font-black mb-1 uppercase text-blue-600">2. LABEL</div>
+                        <div class="text-[11px] text-gray-600 font-black">
+                            ラベルを剥がす<br>
+                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Remove Label / 撕下标签 / 라벨 제거</span>
+                        </div>
+                    </div>
+                    <div class="text-gray-300 text-2xl font-black">▶</div>
+                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-sm font-black mb-1 uppercase text-blue-600">3. CRUSH</div>
+                        <div class="text-[11px] text-gray-600 font-black">
+                            潰す<br>
+                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Crush / 压扁 / 찌그러뜨리기</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-gray-500 mt-4 text-center font-bold px-2 space-y-1">
+                    <p>【JP】キャップとラベルは「プラ・容器」に捨ててください。</p>
+                    <p class="italic text-gray-400">Cap and label go into "PLASTIC" garbage. / 盖子和标签请放入“塑料”垃圾。 / 캡과 라벨은 "플라스틱" 쓰레기통에 버려주세요.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 6 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 7: KITCHEN 1 (Kitchenware) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-orange-600 border-orange-600">
+            <span>🍳</span> 6-1. Kitchenware / 調理器具・食器 <span class="text-sm text-orange-500 font-bold ml-2">/ 厨具餐具 / 조리기구・식기</span>
+        </h3>
+
+        <!-- 写真がはみ出さないように flex-1 と overflow-hidden を追加し、余白を調整 -->
+        <div class="flex-1 flex flex-col space-y-4 overflow-hidden">
+            <!-- Warning Banner -->
+            <div class="bg-red-50 border-4 border-red-200 rounded-[1.5rem] p-4 text-center shadow-sm shrink-0">
+                <h4 class="font-black text-red-700 text-xl mb-2 flex items-center justify-center gap-2">
+                    <span class="text-2xl">⚠️</span> Wash & Return / 片付けのお願い <span class="text-sm opacity-80">/ 清理请求 / 정리 안내</span>
+                </h4>
+                <div class="text-[11px] font-bold text-red-900 leading-relaxed space-y-1.5 text-left bg-white p-3 rounded-xl border border-red-100">
+                    <p>【JP】ご使用になった調理器具や食器は、<span class="text-red-600 font-black border-b border-red-600">チェックアウトまでに必ず洗って元の場所にお戻しください</span>。</p>
+                    <p>【EN】Please <span class="text-red-600 font-black">wash all used kitchenware and dishes, and return them to their original places</span> before check-out.</p>
+                    <p>【CN】退房前，请务必清洗所有使用过的厨具和餐具，并放回原处。</p>
+                    <p>【KR】체크아웃 전까지 사용하신 조리기구와 식기는 반드시 씻어서 제자리에 놓아주세요.</p>
+                </div>
+            </div>
+
+            <!-- Photos Grid (画像がはみ出さないように高さを制限) -->
+            <div class="grid grid-cols-2 gap-3 flex-1 min-h-0 pb-2">
+                <!-- Top Drawer -->
+                <div class="border-4 border-gray-100 rounded-[1.25rem] p-2 bg-white shadow-sm flex flex-col min-h-0">
+                    <span class="text-orange-700 font-black text-[10px] uppercase tracking-widest mb-1 text-center shrink-0">Drawer / 引き出し <span class="opacity-70 normal-case text-[9px]">/ 抽屉 / 서랍</span></span>
+                    <div class="flex-1 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center min-h-0">
+                        <img src="assets/images/kitchen_top.jpg" alt="キッチン引き出し" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Top+Drawer'">
+                    </div>
+                </div>
+                
+                <!-- Sink Middle -->
+                <div class="border-4 border-gray-100 rounded-[1.25rem] p-2 bg-white shadow-sm flex flex-col min-h-0">
+                    <span class="text-orange-700 font-black text-[10px] uppercase tracking-widest mb-1 text-center shrink-0">Sink Below / シンク下 <span class="opacity-70 normal-case text-[9px]">/ 水槽下 / 싱크대 아래</span></span>
+                    <div class="flex-1 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center min-h-0">
+                        <img src="assets/images/kitchen_middle.jpg" alt="シンク下収納" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Sink+Below'">
+                    </div>
+                </div>
+
+                <!-- Stove Below -->
+                <div class="border-4 border-gray-100 rounded-[1.25rem] p-2 bg-white shadow-sm flex flex-col min-h-0">
+                    <span class="text-orange-700 font-black text-[10px] uppercase tracking-widest mb-1 text-center shrink-0">Stove Below / コンロ下 <span class="opacity-70 normal-case text-[9px]">/ 燃气灶下 / 가스레인지 아래</span></span>
+                    <div class="flex-1 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center min-h-0">
+                        <img src="assets/images/kitchen_left.jpg" alt="コンロ下収納" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Stove+Below'">
+                    </div>
+                </div>
+
+                <!-- Sink Right -->
+                <div class="border-4 border-gray-100 rounded-[1.25rem] p-2 bg-white shadow-sm flex flex-col min-h-0">
+                    <span class="text-orange-700 font-black text-[10px] uppercase tracking-widest mb-1 text-center shrink-0">Sink Right / シンク下(右) <span class="opacity-70 normal-case text-[9px]">/ 水槽下(右) / 싱크대(우)</span></span>
+                    <div class="flex-1 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center min-h-0">
+                        <img src="assets/images/kitchen_right.jpg" alt="シンク下右側収納" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Sink+Right'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 7 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 8: KITCHEN 2 (Dishwasher Part 1) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>✨</span> 6-2. Dishwasher / 食洗機の使い方 (1/2) <span class="text-sm text-blue-500 font-bold ml-2">/ 洗碗机 / 식기세척기</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-5">
+            <!-- Uploaded Image & Warning Row -->
+            <div class="flex gap-4 h-56">
+                <!-- Image -->
+                <div class="flex-1 rounded-[1.5rem] overflow-hidden border-4 border-gray-200 shadow-md bg-gray-50 flex flex-col p-3 relative">
+                    <span class="text-blue-900 font-black text-xs mb-2 tracking-widest text-center border-b-2 border-gray-200 pb-1 w-full shrink-0">IRIS OHYAMA<br>ISHT-5000-W</span>
+                    <div class="flex-1 relative rounded-xl overflow-hidden">
+                        <img src="assets/images/dishwasher.jpg" alt="【食洗機の配置画像】" class="absolute inset-0 w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300?text=Dishwasher+Placement'">
+                    </div>
+                </div>
+                <!-- Warning Banner -->
+                <div class="w-1/3 bg-red-600 text-white rounded-[1.5rem] p-4 text-center shadow-lg flex flex-col justify-center">
+                    <h4 class="font-black text-lg mb-2 leading-tight">Use ONLY Dishwasher Detergent!</h4>
+                    <p class="text-[11px] font-black bg-white text-red-600 rounded-lg py-1 px-2 mx-auto mb-1">食洗機専用洗剤のみ使用！</p>
+                    <p class="text-[9px] font-bold mt-2 opacity-90 leading-tight">
+                        一般の洗剤を入れると泡が溢れて故障します。<br>
+                        Regular dish soap will cause damage.<br>
+                        仅限专用洗剂！ / 전용 세제만!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Steps Grid (Steps 1 & 2) -->
+            <div class="flex flex-col gap-4 flex-1">
+                <!-- Step 1: Drain Hose -->
+                <div class="bg-white p-5 rounded-[1.5rem] border-4 border-gray-100 shadow-sm flex flex-col">
+                    <div class="flex items-center gap-3 border-b-2 border-gray-100 pb-2 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                            <span class="text-xl">🌊</span>
+                        </div>
+                        <span class="text-blue-700 font-black text-sm uppercase tracking-wider">1. Drain Hose / 排水ホース <span class="opacity-70 normal-case text-xs">/ 排水软管 / 배수 호스</span></span>
+                    </div>
+                    <div class="text-gray-700 text-xs font-bold leading-relaxed space-y-1.5">
+                        <p>【JP】ホースの先端をシンク（流し台）に入れる。</p>
+                        <p>【EN】Put the end of the drain hose into the sink.</p>
+                        <p>【CN】将排水软管的末端放入水槽中。</p>
+                        <p>【KR】배수 호스 끝을 싱크대에 넣습니다.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Detergent -->
+                <div class="bg-white p-5 rounded-[1.5rem] border-4 border-gray-100 shadow-sm flex flex-col flex-1">
+                    <div class="flex items-center gap-3 border-b-2 border-gray-100 pb-2 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center shrink-0">
+                            <span class="text-xl">🧼</span>
+                        </div>
+                        <span class="text-amber-700 font-black text-sm uppercase tracking-wider">2. Detergent / 専用洗剤を入れる <span class="opacity-70 normal-case text-xs">/ 放入洗涤剂 / 세제 넣기</span></span>
+                    </div>
+                    <div class="flex gap-5 items-start">
+                        <div class="text-gray-700 text-xs font-bold leading-relaxed space-y-2 flex-1">
+                            <p>【JP】<span class="text-red-600">専用洗剤(約6g / 1個)</span>を扉内側のくぼみに直接入れる。</p>
+                            <p>【EN】Put detergent into the dent on the inner door.</p>
+                            <p>【CN】将专用洗剂放入门内侧的凹槽中。</p>
+                            <p>【KR】전용 세제를 문 안쪽 홈에 넣습니다.</p>
+                        </div>
+                        <div class="w-64 h-48 rounded-2xl overflow-hidden border-2 border-gray-200 shrink-0 shadow-sm">
+                            <img src="assets/images/detergent_port.jpg" alt="【洗剤投入口】" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/256x192?text=Detergent'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 8 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 9: KITCHEN 3 (Dishwasher Part 2) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>✨</span> 6-3. Dishwasher / 食洗機の使い方 (2/2) <span class="text-sm text-blue-500 font-bold ml-2">/ 洗碗机 / 식기세척기</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-5">
+            <!-- Step 3: Water -->
+            <div class="bg-white p-6 rounded-[1.5rem] border-4 border-gray-100 shadow-sm flex flex-col">
+                <div class="flex items-center gap-3 border-b-2 border-gray-100 pb-2 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center shrink-0">
+                        <span class="text-2xl">💧</span>
+                    </div>
+                    <span class="text-cyan-700 font-black text-base uppercase tracking-wider">3. Water / 給水する <span class="opacity-70 normal-case text-sm">/ 加水 / 물 채우기</span></span>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="text-gray-700 text-xs font-bold leading-relaxed space-y-2 flex-1">
+                        <p>【JP】付属のカップを使い、上部の給水口から水を<span class="text-cyan-700 text-base">5L</span>注ぐ。（満水でピピピッ♪と鳴ります）</p>
+                        <p>【EN】Use the included cup to pour 5L of water into the top hole until it beeps.</p>
+                        <p>【CN】使用附带的水杯，从顶部倒入5L水，直到发出蜂鸣声。</p>
+                        <p>【KR】동봉된 컵을 사용하여 상단 구멍에 물 5L를 붓습니다(삐 소리).</p>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <div class="w-24 h-32 rounded-2xl border-2 border-gray-200 shadow-sm bg-gray-50 flex flex-col items-center justify-center p-2 relative">
+                            <span class="text-[9px] font-black text-cyan-700 tracking-widest uppercase mb-1 text-center">Cup / カップ<br><span class="opacity-70 normal-case">水杯 / 컵</span></span>
+                            <img src="assets/images/water_cup.jpg" alt="給水カップ" class="max-w-full h-16 object-contain" onerror="this.src='https://placehold.co/100x100?text=Cup'">
+                        </div>
+                        <div class="w-40 h-32 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-sm">
+                            <img src="assets/images/water_port.jpg" alt="【給水口】" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/160x128?text=Water'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Start -->
+            <div class="bg-white p-6 rounded-[1.5rem] border-4 border-gray-100 shadow-sm flex flex-col flex-1">
+                <div class="flex items-center gap-3 border-b-2 border-gray-100 pb-2 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+                        <span class="text-2xl">▶️</span>
+                    </div>
+                    <span class="text-green-700 font-black text-base uppercase tracking-wider">4. Start / 運転開始 <span class="opacity-70 normal-case text-sm">/ 开始 / 시작</span></span>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <!-- 画像の縦幅を h-24 から h-32 に変更し、表示領域を広げました -->
+                    <div class="w-full h-32 rounded-2xl overflow-hidden border-2 border-gray-200 shrink-0 shadow-sm bg-white flex items-center justify-center">
+                        <img src="assets/images/dishwasher_btn.jpg" alt="【操作パネル】" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/400x128?text=Control+Panel'">
+                    </div>
+                    <div class="flex flex-col justify-center gap-2 px-2">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="bg-white border-2 border-gray-300 px-3 py-1 rounded-lg text-xs font-black text-gray-800 shadow-sm">電源</span>
+                            <span class="text-blue-400 font-black text-xl">▶</span>
+                            <span class="bg-white border-2 border-gray-300 px-3 py-1 rounded-lg text-xs font-black text-gray-800 shadow-sm">コース</span>
+                            <span class="text-blue-400 font-black text-xl">▶</span>
+                            <span class="bg-yellow-300 border-2 border-yellow-500 px-3 py-1 rounded-lg text-xs font-black text-gray-800 shadow-sm">スタート</span>
+                        </div>
+                        <div class="text-gray-500 text-[11px] font-bold leading-relaxed mt-1">
+                            Power ▶ Course (Mode) ▶ Start<br>
+                            电源 ▶ 模式 ▶ 开始 / 전원 ▶ 코스 ▶ 시작
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placement Warning -->
+            <div class="bg-amber-50 p-5 rounded-2xl border-4 border-amber-200 flex items-center gap-5 shadow-inner mt-2">
+                <span class="text-4xl">⚠️</span>
+                <div class="text-xs font-bold text-amber-900 leading-relaxed">
+                    コンロの火に近づけないでください。<br>(Keep away from gas stove / 远离燃气灶 / 가스레인지 주의)
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 9 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 10: APPLIANCES 1 (Basic Appliances) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>📺</span> 7-1. Basic Appliances / 基本家電の使い方 <span class="text-sm text-blue-500 font-bold ml-2">/ 基本家电 / 기본 가전</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-6">
+            <!-- Air Conditioner -->
+            <div class="border-4 border-gray-100 rounded-[2.5rem] p-6 bg-white flex gap-6 items-center shadow-sm">
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-blue-800 border-b-2 pb-2 mb-4">❄️ Air Conditioner / エアコン <span class="text-sm ml-2">/ 空调 / 에어컨</span></h4>
+                    <div class="text-[10px] font-bold text-gray-600 leading-relaxed space-y-1.5">
+                        <p>【JP】<span class="bg-blue-50 px-1 py-0.5 rounded border border-blue-200 text-blue-800 font-black">冷房</span> で冷やし、<span class="bg-red-50 px-1 py-0.5 rounded border border-red-200 text-red-800 font-black">暖房</span> で温めます。温度は <span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 text-gray-800 font-black">温度 / 室温 ∧ ∨</span> で調節。消す時は <span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 text-gray-800 font-black">停止</span> です。</p>
+                        <p>【EN】Press <span class="text-blue-600 font-black">冷房(Blue)</span> to COOL, <span class="text-red-500 font-black">暖房(Red/Orange)</span> to HEAT. Temp: <span class="text-gray-800 font-black">温度/室温(∧/∨)</span>. Press <span class="text-gray-800 font-black">停止</span> to STOP.</p>
+                        <p>【CN】按 <span class="text-blue-600 font-black">冷房(蓝色)</span> 制冷，按 <span class="text-red-500 font-black">暖房(红/橙)</span> 制热。调温：<span class="text-gray-800 font-black">温度/室温(∧/∨)</span>。关闭：按 <span class="text-gray-800 font-black">停止</span>。</p>
+                        <p>【KR】<span class="text-blue-600 font-black">冷房(파란색)</span> 냉방, <span class="text-red-500 font-black">暖房(빨간/주황)</span> 난방. 온도: <span class="text-gray-800 font-black">温度/室温(∧/∨)</span>. 끌 때: <span class="text-gray-800 font-black">停止</span>.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 shrink-0">
+                    <div class="w-24 h-40 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-sm bg-gray-50 flex items-center justify-center p-1.5 relative">
+                        <span class="absolute top-1.5 left-1.5 bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">SHARP</span>
+                        <img src="assets/images/remote_ac_sharp.jpg" alt="SHARP Remote" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/100x250?text=SHARP'">
+                    </div>
+                    <div class="w-24 h-40 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-sm bg-gray-50 flex items-center justify-center p-1.5 relative">
+                        <span class="absolute top-1.5 left-1.5 bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">HITACHI</span>
+                        <img src="assets/images/remote_ac_hitachi.jpg" alt="HITACHI Remote" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/100x250?text=HITACHI'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hot Water -->
+            <div class="border-4 border-gray-100 rounded-[2.5rem] p-6 bg-white flex gap-6 items-center shadow-sm">
+                <div class="flex-1">
+                    <h4 class="font-black text-2xl text-blue-800 border-b-2 pb-2 mb-4">🚿 Hot Water / 給湯器 <span class="text-sm ml-2">/ 热水器 / 보일러</span></h4>
+                    <div class="text-[10px] font-bold text-gray-600 leading-relaxed space-y-1.5">
+                        <p>【JP】<span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 shadow-sm text-gray-800 font-black">運転</span> で電源を入れ、<span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 shadow-sm text-gray-800 font-black">給湯 ∧ ∨</span> で温度調節。お風呂を入れる時は <span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 shadow-sm text-gray-800 font-black">自動</span> を押します。温め直しは <span class="bg-gray-100 px-1 py-0.5 rounded border border-gray-300 shadow-sm text-gray-800 font-black">おいだき</span>。<span class="text-red-600 font-black">（空焚き厳禁）</span></p>
+                        <p>【EN】Press "運転(Power)" & adjust temp with "給湯(∧/∨)". Press "自動(Auto)" to fill the tub, or "おいだき(Reheat)" to reheat. <span class="text-red-600">Do not heat if empty.</span></p>
+                        <p>【CN】按 "運転(电源)"开启，用 "給湯(∧/∨)" 调温。按 "自動" 放洗澡水，按 "おいだき" 重新加热。<span class="text-red-600">严禁空烧。</span></p>
+                        <p>【KR】"運転(전원)" 켜고 "給湯(∧/∨)"로 온도 조절. 물을 받을 때는 "自動", 재가열은 "おいだき". <span class="text-red-600">빈 욕조 가열 금지.</span></p>
+                    </div>
+                </div>
+                <div class="flex gap-2 shrink-0">
+                    <div class="w-32 h-32 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-sm bg-gray-50 flex items-center justify-center p-2 relative">
+                        <span class="absolute top-1.5 left-1.5 bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Kitchen</span>
+                        <img src="assets/images/hot_water_kitchen.jpg" alt="給湯器パネル(台所)" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/150x150?text=Kitchen'">
+                    </div>
+                    <div class="w-32 h-32 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-sm bg-gray-50 flex items-center justify-center p-2 relative">
+                        <span class="absolute top-1.5 left-1.5 bg-green-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Bath</span>
+                        <img src="assets/images/hot_water_bath.jpg" alt="給湯器パネル(浴室)" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/150x150?text=Bath'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-red-50 border-4 border-red-200 rounded-[2rem] p-6 text-center shadow-inner mt-auto">
+                <h4 class="font-black text-red-700 text-xl mb-3 uppercase tracking-widest flex justify-center gap-2">⚠️ Fire Prevention / 火災防止 <span class="text-sm normal-case opacity-80">/ 防火注意 / 화재 예방</span></h4>
+                <p class="text-base font-black text-red-600 italic leading-relaxed">
+                    Unplug hair irons immediately after use!<br>
+                    (ヘアアイロン等は必ずコンセントを抜く)<br>
+                    <span class="text-xs mt-1 block opacity-80">使用后请务必拔掉插头！ / 사용 후에는 반드시 코드를 뽑아주세요!</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 10 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 11: APPLIANCES 2 (Microwave Oven) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>🍱</span> 7-2. Microwave Oven / オーブンレンジ <span class="text-sm text-blue-500 font-bold ml-2">/ 微波烤箱 / 오븐 전자레인지</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-6">
+            <!-- Warning Banner -->
+            <div class="bg-red-600 text-white rounded-[2rem] p-6 text-center shadow-lg">
+                <h4 class="font-black text-2xl mb-2 flex items-center justify-center gap-2">
+                    <span class="text-3xl">🚫</span> NO METAL / 金属・アルミホイル禁止
+                </h4>
+                <div class="text-sm font-bold bg-white text-red-600 p-3 rounded-xl mx-4 mb-2 shadow-sm">
+                    レンジ機能（温め）で金属やアルミホイルを使用すると火災になります！
+                </div>
+                <p class="text-[11px] font-bold opacity-90 leading-relaxed mt-2">
+                    Never use metal or aluminum foil in Microwave mode! It causes FIRE!<br>
+                    微波模式下严禁使用金属或铝箔纸！会导致火灾！<br>
+                    전자레인지 모드에서 금속이나 알루미늄 호일 사용 절대 금지! 화재의 원인이 됩니다!
+                </p>
+            </div>
+
+            <!-- Model Info & Image -->
+            <div class="flex gap-6 items-center border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm">
+                <div class="w-1/3 h-32 rounded-xl overflow-hidden bg-gray-100 border-2 border-gray-200 flex items-center justify-center shrink-0">
+                    <img src="assets/images/microwave.jpg" alt="オーブンレンジ" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Microwave+Oven'">
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-black text-xl text-blue-900 mb-2 border-b-2 border-gray-100 pb-2">YAMAZEN YRP-F181TV</h4>
+                    <div class="text-[11px] text-gray-600 font-bold leading-relaxed space-y-1">
+                        <p>フラットテーブル式のオーブンレンジです。食品を庫内の中央に置いて操作してください。</p>
+                        <p class="text-gray-400 mt-1">Place food in the center of the flat table. / 请将食物放在中央。 / 음식을 중앙에 놓아주세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="grid grid-cols-2 gap-4 flex-1">
+                <!-- Microwave -->
+                <div class="border-4 border-blue-100 rounded-[1.5rem] p-5 bg-blue-50 flex flex-col">
+                    <h4 class="font-black text-blue-800 text-base mb-3 border-b-2 border-blue-200 pb-2 flex items-center gap-2">
+                        <span>♨️</span> Microwave / レンジ(温め) <span class="text-[10px] ml-1 opacity-70">/ 微波 / 전자레인지</span>
+                    </h4>
+                    <div class="text-[11px] font-bold text-gray-700 space-y-3 flex-1">
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                            <span class="text-blue-600 font-black block text-[10px] mb-1 uppercase tracking-widest">Auto Warm / 自動あたため</span>
+                            食品を入れ、<span class="bg-white text-gray-800 px-2 py-1 rounded mx-1 border border-gray-300 font-black text-[10px] shadow-sm">スタート / あたため</span> を押すだけ。<br>
+                            <span class="text-[9px] text-gray-500 mt-1 block">Just press START. / 放入食物按开始键。 / 시작 버튼을 누르세요.</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm">
+                            <span class="text-blue-600 font-black block text-[10px] mb-1 uppercase tracking-widest">Manual / 手動設定</span>
+                            <span class="bg-gray-800 text-white px-2 py-1 rounded mx-1 border border-gray-600 font-black text-[10px]">レンジ / 出力切替</span> を押し、ダイヤルでワット数と時間を設定してスタート。<br>
+                            <span class="text-[9px] text-gray-500 mt-1 block">Press "レンジ", set Wattage/Time, and START. / 按下"微波"设定功率和时间后开始。 / "전자레인지" 누르고 설정 후 시작.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oven -->
+                <div class="border-4 border-orange-100 rounded-[1.5rem] p-5 bg-orange-50 flex flex-col">
+                    <h4 class="font-black text-orange-800 text-base mb-3 border-b-2 border-orange-200 pb-2 flex items-center gap-2">
+                        <span>🍞</span> Oven & Grill / オーブン・トースト <span class="text-[10px] ml-1 opacity-70">/ 烤箱 / 오븐</span>
+                    </h4>
+                    <div class="text-[11px] font-bold text-gray-700 space-y-3 flex-1">
+                        <div class="bg-white p-3 rounded-xl border border-orange-200 shadow-sm">
+                            <span class="text-orange-600 font-black block text-[10px] mb-1 uppercase tracking-widest">Auto Menu / オートメニュー</span>
+                            <span class="bg-gray-800 text-white px-2 py-1 rounded mx-1 border border-gray-600 font-black text-[10px]">オートメニュー</span> を押し、ダイヤルでメニュー（トースト等）を選んでスタート。<br>
+                            <span class="text-[9px] text-gray-500 mt-1 block">※途中で裏返す合図（ブザー）が鳴ったら裏返してください。<br>Select menu and press START. Flip when it beeps. / 选择菜单后开始。听到提示音请翻面。 / 메뉴 선택 후 시작. 알림음이 울리면 뒤집어주세요.</span>
+                        </div>
+                        <div class="bg-red-50 p-3 rounded-xl border border-red-200 shadow-sm">
+                            <span class="text-red-600 font-black block text-[10px] mb-1 uppercase tracking-widest">Caution / やけど注意</span>
+                            オーブン・グリル使用中は本体が熱くなります。触らないでください。<br>
+                            <span class="text-[9px] text-red-500 mt-1 block">Unit becomes HOT. Do not touch! / 机器会发烫，请勿触摸！ / 기기가 뜨거워지니 만지지 마세요!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 11 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 12: APPLIANCES 3 (Rice Cooker) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>🍚</span> 7-3. Rice Cooker / 炊飯器 <span class="text-sm text-blue-500 font-bold ml-2">/ 电饭煲 / 전기밥솥</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-5">
+            <!-- Model Info & Image -->
+            <div class="flex gap-6 items-center border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm">
+                <div class="w-1/3 h-32 rounded-xl overflow-hidden bg-gray-100 border-2 border-gray-200 flex items-center justify-center shrink-0 p-2">
+                    <img src="assets/images/rice_cooker.jpg" alt="炊飯器" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/400x300?text=Rice+Cooker'">
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-black text-xl text-blue-900 mb-2 border-b-2 border-gray-100 pb-2">IRIS OHYAMA RC-MSA30</h4>
+                    <div class="text-[11px] text-gray-600 font-bold leading-relaxed space-y-1">
+                        <p>3合炊きの炊飯器です。使用後は必ず内釜と内ぶたを洗ってください。</p>
+                        <p class="text-gray-400 mt-1">Please wash the inner pot and lid after use. / 使用后请清洗内锅和内盖。 / 사용 후 내솥과 속뚜껑을 씻어주세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm flex-1">
+                <h4 class="font-black text-xl text-blue-900 mb-4 border-b-2 border-gray-100 pb-2">How to Use / 基本操作 <span class="text-sm opacity-70 ml-2">/ 操作步骤 / 조작법</span></h4>
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">1</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-blue-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Prep / 準備</span>
+                            お米を研ぎ、目盛りに合わせて水を入れて本体にセットし、ふたをカチッと閉める。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">Wash rice, add water to the line, set the pot, and close lid. / 洗米，加水至刻度线并关紧盖子。 / 쌀을 씻고 물을 맞춘 후 뚜껑을 닫습니다.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">2</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-blue-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Select Menu / コース選択</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full mx-1 font-black text-[10px] shadow-sm">選択</span> ボタンを押し、炊きたいコース（「白米」など）に合わせる。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">Press "Select(選択)" to choose "白米(White Rice)". / 按"选择"键选择"白米"。 / "선택" 버튼으로 "백미"를 선택합니다.</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">3</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-blue-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Start / 炊飯開始</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full mx-1 font-black text-[10px] shadow-sm">炊飯</span> を押す。取り消す場合は <span class="bg-gray-700 text-white px-2 py-0.5 rounded-full mx-1 font-black text-[9px] shadow-sm">保温/取消</span>。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">Press "Cook(炊飯)". To cancel, press "保温/取消". / 按"煮饭"。取消请按"保温/取消"。 / "취사" 버튼을 누릅니다. 취소 시 "보온/취소".</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 12 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 13: APPLIANCES 4 (Washer & Dryer) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>👕</span> 7-4. Washer & Dryer / 洗濯乾燥機 (1/2) <span class="text-sm text-blue-500 font-bold ml-2">/ 洗衣烘干机 / 세탁 건조기</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-4">
+            <!-- Uploaded Image Area -->
+            <div class="flex gap-4">
+                <div class="w-1/3 rounded-[1.5rem] overflow-hidden border-4 border-gray-200 shadow-md bg-gray-50 flex flex-col items-center justify-center p-3">
+                    <span class="text-blue-900 font-black text-xs mb-2 tracking-widest text-center border-b-2 border-gray-200 pb-1 w-full">TOSHIBA<br>AW-8VH4</span>
+                    <img src="assets/images/washing_machine.png" alt="【洗濯機本体】※HTMLファイルと同じフォルダに「assets/images/washing_machine.png」を保存すると表示されます。" class="w-full h-auto object-contain max-h-48" onerror="this.src='https://placehold.co/400x600?text=Washing+Machine'">
+                </div>
+                <div class="w-2/3 rounded-[1.5rem] overflow-hidden border-4 border-gray-200 shadow-md bg-gray-50 flex flex-col items-center justify-center p-4">
+                    <span class="text-blue-800 font-black text-xs mb-2 uppercase tracking-widest">Control Panel / 操作パネル <span class="opacity-70 normal-case">/ 操作面板 / 조작 패널</span></span>
+                    <img src="assets/images/washing_machine_panel.png" alt="【操作パネル】※HTMLファイルと同じフォルダに「assets/images/washing_machine_panel.png」を保存すると表示されます。" class="w-full h-auto object-contain" onerror="this.src='https://placehold.co/800x250?text=Control+Panel'">
+                </div>
+            </div>
+
+            <!-- Capacity Warning (Very Important) -->
+            <div class="bg-red-50 border-4 border-red-200 rounded-[1.5rem] p-4 shadow-sm">
+                <h4 class="font-black text-lg text-red-700 mb-2 flex items-center gap-2">
+                    <span>⚠️</span> Capacity Limit / 乾燥容量の注意
+                </h4>
+                <div class="text-[11px] font-bold text-red-900 leading-relaxed space-y-1">
+                    <p>【JP】洗濯は8kgまでですが、乾燥は4.5kg（半分以下）までです。詰め込むと乾かずシワになります。</p>
+                    <p>【EN】Wash up to 8kg, but Dry up to 4.5kg (less than half). Overloading causes wrinkles.</p>
+                    <p>【CN】洗涤最多8kg，但烘干最多4.5kg（不到一半）。塞得太满会导致无法烘干和起皱。</p>
+                    <p>【KR】세탁은 8kg, 건조는 4.5kg(절반 이하)까지만 가능합니다. 주름이 생길 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 flex-1">
+                <!-- How to Use -->
+                <div class="border-4 border-gray-100 rounded-[1.5rem] p-4 bg-white flex flex-col">
+                    <h4 class="font-black text-base text-blue-900 mb-2 border-b-2 border-gray-100 pb-1 shrink-0">How to Use / 基本操作</h4>
+                    <div class="text-[10px] font-bold text-gray-700 flex-1 flex flex-col justify-between">
+                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">1. Turn ON / 電源を入れる</span>
+                            <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">入</span> (ON) を押す。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press "入(ON)". / 按"入(ON)"。 / "入(ON)" 버튼을 누릅니다.</span>
+                        </div>
+                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">2. Select Mode / コース選択</span>
+                            <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗乾</span> または <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗濯</span> を押す。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press 洗乾(Wash&Dry) or 洗濯(Wash). / 按 洗乾 或 洗濯。 / "洗乾(세탁&건조)" 또는 "洗濯(세탁)" 버튼을 누릅니다.</span>
+                        </div>
+                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">3. Start / スタート</span>
+                            <span class="bg-yellow-300 border border-yellow-500 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">スタート</span> (Start) を押す。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press スタート(Start). / 按 スタート(开始)。 / "スタート(시작)" 버튼을 누릅니다.</span>
+                        </div>
+                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">4. Detergent / 洗剤・柔軟剤を入れる</span>
+                            洗剤や柔軟剤を入れ、ふたを確実に閉める。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block leading-tight">Add detergent/softener and close the lid. (See next page)<br>放入洗涤剂并关盖。(详见下页) / 세제를 넣고 뚜껑을 닫습니다.(다음장 참조)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restrictions -->
+                <div class="flex flex-col gap-3">
+                    <div class="border-4 border-gray-100 rounded-[1.5rem] p-4 bg-white flex-1">
+                        <h4 class="font-black text-base text-amber-800 mb-2 border-b-2 border-gray-100 pb-1">Do Not Dry / 乾燥NG衣類</h4>
+                        <div class="text-[11px] font-bold text-gray-600 leading-relaxed space-y-1">
+                            <p>【JP】ウール、シルク、革、レースなど熱に弱い服は乾燥機に入れないでください。</p>
+                            <p>【EN】Do not dry wool, silk, leather, or heat-sensitive items. (Causes shrinking)</p>
+                            <p>【CN】请勿烘干羊毛、丝绸、皮革等不耐热衣物。</p>
+                            <p>【KR】울, 실크, 가죽 등 열에 약한 옷은 건조하지 마세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 13 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 14: APPLIANCES 4 (Washer & Dryer 2/2) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>🧼</span> 7-4. Washer & Dryer (2/2) <span class="text-sm text-blue-500 font-bold ml-2">/ 洗剤・柔軟剤 / 세제</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-6">
+            <!-- ジェルボールの注意喚起 -->
+            <div class="bg-red-50 border-4 border-red-200 rounded-[2rem] p-6 text-center shadow-sm">
+                <h4 class="font-black text-red-700 text-xl mb-3 flex items-center justify-center gap-2">
+                    <span class="text-2xl">⚠️</span> Gel Ball Pods / ジェルボール等について
+                </h4>
+                <div class="text-[12px] font-bold text-red-900 leading-relaxed space-y-2 text-left bg-white p-4 rounded-xl border border-red-100">
+                    <p>【JP】ジェルボール等の洗剤は、<span class="text-red-600 font-black">投入口には入れず、直接洗濯・脱水槽の中へ入れてください</span>。</p>
+                    <p>【EN】If using gel ball pods, put them <span class="text-red-600 font-black">directly into the washing drum</span>, NOT in the dispenser.</p>
+                    <p>【CN】如果使用洗衣凝珠，请<span class="text-red-600 font-black">直接放入洗衣桶内</span>，不要放入洗涤剂槽。</p>
+                    <p>【KR】캡슐형 세제는 <span class="text-red-600 font-black">투입구가 아닌 세탁조 안에 직접</span> 넣어주세요.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6 flex-1">
+                <!-- 洗剤投入口 -->
+                <div class="border-4 border-blue-100 rounded-[2rem] p-6 bg-blue-50 flex flex-col shadow-sm relative overflow-hidden">
+                    <div class="flex items-center gap-3 border-b-2 border-blue-200 pb-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 border-2 border-blue-100">
+                            <span class="text-2xl text-blue-500">🫧</span>
+                        </div>
+                        <h4 class="text-blue-800 font-black text-lg leading-tight">Detergent<br><span class="text-[10px] uppercase tracking-widest block opacity-70">洗剤・漂白剤 / 洗涤剂 / 세제</span></h4>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-4 text-[11px] font-bold text-gray-700 leading-relaxed z-10">
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-blue-100">
+                            <p class="mb-2">【JP】洗剤・漂白剤投入口のトレイに親指をかけ、手前に引いて洗剤を入れます。</p>
+                            <p class="mb-2">【EN】Pull out the detergent tray towards you and add detergent/bleach.</p>
+                            <p class="mb-2">【CN】用拇指勾住洗涤剂/漂白剂槽的托盘，向外拉出并加入洗涤剂。</p>
+                            <p>【KR】세제/표백제 투입구 트레이를 앞으로 당겨 세제를 넣습니다.</p>
+                        </div>
+                        <!-- トレイの画像を追加 -->
+                        <div class="flex-1 flex justify-center items-center bg-white rounded-2xl shadow-sm border border-blue-100 p-2">
+                            <img src="assets/images/detergent_tray.png" alt="洗剤投入トレイの引き出し方" class="max-h-24 object-contain" onerror="this.src='https://placehold.co/200x100?text=Tray+Image'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 柔軟剤投入口 -->
+                <div class="border-4 border-pink-100 rounded-[2rem] p-6 bg-pink-50 flex flex-col shadow-sm relative overflow-hidden">
+                    <div class="flex items-center gap-3 border-b-2 border-pink-200 pb-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 border-2 border-pink-100">
+                            <span class="text-2xl text-pink-500">🌸</span>
+                        </div>
+                        <h4 class="text-pink-800 font-black text-lg leading-tight">Softener<br><span class="text-[10px] uppercase tracking-widest block opacity-70">柔軟剤 / 柔顺剂 / 섬유유연제</span></h4>
+                    </div>
+                    <div class="flex-1 flex flex-col gap-4 text-[11px] font-bold text-gray-700 leading-relaxed z-10">
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-pink-100 flex-1">
+                            <p class="mb-2">【JP】柔軟剤投入ケースを手前に引き、柔軟剤を入れます。<br><span class="text-pink-600 font-black">※キャップの線（上限）を超えないように入れてください。</span></p>
+                            <p class="mb-2">【EN】Pull out the softener case and add softener. <span class="text-pink-600">Do not exceed the MAX line.</span></p>
+                            <p class="mb-2">【CN】向外拉出柔顺剂槽并加入柔顺剂。<span class="text-pink-600">请勿超过最大刻度线。</span></p>
+                            <p>【KR】섬유유연제 투입구를 당겨 유연제를 넣습니다. <span class="text-pink-600">MAX 선을 넘지 마세요.</span></p>
+                        </div>
+                        <!-- 柔軟剤投入ケースの画像を追加 -->
+                        <div class="flex-1 flex justify-center items-center bg-white rounded-2xl shadow-sm border border-pink-100 p-2">
+                            <img src="assets/images/softener_case.png" alt="柔軟剤投入ケースの場所" class="max-h-24 object-contain" onerror="this.src='https://placehold.co/200x100?text=Softener+Case'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-amber-50 p-4 rounded-2xl border-2 border-amber-100 text-center mt-4">
+                 <div class="text-xs font-bold text-amber-800 space-y-1">
+                    <p>※洗剤・柔軟剤を入れすぎると、水漏れや故障の原因になります。適量を守ってご使用ください。</p>
+                    <p class="text-[10px] opacity-80 normal-case leading-relaxed">
+                        Too much detergent may cause leaks or breakdown. Please use appropriate amount.<br>
+                        放入过多会导致漏水或故障。请适量使用。<br>
+                        너무 많이 넣으면 누수나 고장의 원인이 됩니다. 적당량을 사용해 주세요.
+                    </p>
+                 </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 14 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 15: APPLIANCES 5 (Dehumidifier) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>💧</span> 7-5. Dehumidifier / 除湿機 <span class="text-sm text-blue-500 font-bold ml-2">/ 除湿机 / 제습기</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col space-y-5">
+            <!-- Model Info & Image -->
+            <div class="flex gap-5 items-center border-4 border-gray-100 rounded-[2rem] p-5 bg-white shadow-sm">
+                <div class="flex gap-2 shrink-0">
+                    <div class="w-28 h-32 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center p-1 relative">
+                        <span class="absolute top-1 left-1 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Body</span>
+                        <img src="assets/images/dehumidifier.jpg" alt="除湿機" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/150x200?text=Dehumidifier'">
+                    </div>
+                    <div class="w-28 h-32 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center relative">
+                        <span class="absolute top-1 left-1 bg-green-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Panel</span>
+                        <img src="assets/images/dehumidifier_panel.jpg" alt="操作パネル" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/150x200?text=Panel'">
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-black text-xl text-blue-900 mb-2 border-b-2 border-gray-100 pb-2">タンスのゲン (79700006)</h4>
+                    <div class="text-[11px] text-gray-600 font-bold leading-relaxed space-y-1">
+                        <p>部屋干しの洗濯物を乾かしたり、お部屋の湿気を取るのに便利です。</p>
+                        <p class="text-gray-400 mt-1">Useful for drying indoor laundry and reducing room humidity. / 适用于室内晾衣和除湿。 / 실내 건조 및 제습에 유용합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm flex-1">
+                <h4 class="font-black text-xl text-blue-900 mb-4 border-b-2 border-gray-100 pb-2">How to Use / 基本操作 <span class="text-sm opacity-70 ml-2">/ 操作步骤 / 조작법</span></h4>
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">1</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-blue-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Power & Louver / 電源とルーバー</span>
+                            上部のフラップ（羽）を手で開け、<span class="bg-white border-2 border-gray-300 px-2 py-0.5 rounded font-black text-[10px] shadow-sm">電源</span> ボタンを押します。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">Open the top flap manually and press Power. / 手动打开顶部导风板并按电源键。 / 상단 플랩(날개)을 손으로 열고 전원 버튼을 누릅니다.</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">2</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-blue-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Laundry Mode / 衣類乾燥モード</span>
+                            洗濯物を乾かす時は、<span class="bg-white border-2 border-gray-300 px-2 py-0.5 rounded font-black text-[10px] shadow-sm">モード(田マーク)</span> を押し、「衣類乾燥」ランプを点灯させます。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">Press Mode (4 squares) to select "衣類乾燥 (Laundry)". / 按模式键(四叶草图标)选择"衣類乾燥(干衣)"。 / 모드 버튼(네모 4개)을 눌러 "衣類乾燥(의류 건조)"를 선택합니다.</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 p-4 rounded-3xl border-2 border-red-200 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-red-200 text-red-700 rounded-full flex items-center justify-center text-lg shrink-0 font-black">3</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1 mt-1">
+                            <span class="text-red-700 font-black block text-[11px] mb-1 uppercase tracking-widest">Drain / 排水（満水時）</span>
+                            「満水」ランプが点灯して止まったら、本体下部のタンクを引き出し、水を捨ててください。<br>
+                            <span class="text-[10px] text-gray-500 mt-1 block">If Full Tank light is on, pull out the bottom tank and drain water. / 水满指示灯亮起时，请拉出底部水箱倒水。 / 만수 표시등이 켜지면 하단 물통을 빼서 물을 비워주세요.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 15 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 16: APPLIANCES 6 (Smart TV) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-blue-800">
+            <span>📺</span> 7-6. Smart TV / スマートテレビ <span class="text-sm text-blue-500 font-bold ml-2">/ 智能电视 / 스마트 TV</span>
+        </h3>
+
+        <!-- 余白を詰めて1ページに確実に収める調整 -->
+        <div class="flex-1 flex flex-col space-y-4">
+            <!-- TV Image / Info -->
+            <div class="border-4 border-gray-100 rounded-[2.5rem] p-6 bg-white shadow-sm flex flex-col items-center">
+                <div class="w-full h-40 rounded-2xl flex items-center justify-center mb-3">
+                    <img src="assets/images/tv.jpg" alt="Hisense 65E60N" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/800x300?text=Smart+TV'">
+                </div>
+                <div class="text-center w-full">
+                    <h4 class="text-2xl font-black tracking-widest text-blue-900 border-b-2 border-gray-100 pb-2 mb-2 inline-block px-4">Hisense 65E60N</h4>
+                    <p class="text-[11px] font-bold text-gray-500">VODダイレクトボタン＆AirPlay対応！ / VOD Direct Buttons & AirPlay Supported! <br><span class="opacity-80 font-normal">支持VOD直达按键及AirPlay！ / VOD 다이렉트 버튼 및 AirPlay 지원!</span></p>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="border-4 border-gray-100 rounded-[2.5rem] p-6 bg-white shadow-sm flex-1">
+                <h4 class="font-black text-xl text-blue-900 mb-4 border-b-2 border-gray-100 pb-2">How to Use / 基本操作 <span class="text-sm opacity-70 ml-2">/ 操作步骤 / 조작법</span></h4>
+                <div class="space-y-3">
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-xl shrink-0 font-black">1</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1">
+                            <p>【JP】リモコンの<span class="bg-white border-2 border-gray-300 px-2 rounded-lg mx-1">電源</span>を入れ、見たいアプリの<span class="bg-blue-600 text-white px-2 rounded-lg mx-1">専用ボタン</span>を押すか、<span class="bg-white border-2 border-gray-300 px-2 rounded-lg mx-1">🏠(ホーム)</span>から選びます。</p>
+                            <p>【EN】Turn ON and press a VOD direct button, or press the <span class="bg-white border-2 border-gray-300 px-2 rounded-lg">🏠 Home</span> button.</p>
+                            <p>【CN】打开电源，按下遥控器上的专用应用按钮，或按下 <span class="bg-white border-2 border-gray-300 px-2 rounded-lg">🏠 主页</span> 按钮选择。</p>
+                            <p>【KR】전원을 켜고 전용 앱 버튼을 누르거나 <span class="bg-white border-2 border-gray-300 px-2 rounded-lg">🏠 홈</span> 버튼으로 앱을 선택합니다.</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-3xl border-2 border-blue-100 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-xl shrink-0 font-black">2</div>
+                        <div class="text-xs font-bold text-gray-700 leading-relaxed flex-1">
+                            <p>【JP】スマホ画面の共有（Apple AirPlay / キャスト）機能にも対応しています。</p>
+                            <p>【EN】Smartphone screen sharing (Apple AirPlay / Cast) is also supported.</p>
+                            <p>【CN】也支持智能手机屏幕共享（Apple AirPlay / 投屏功能）。</p>
+                            <p>【KR】스마트폰 화면 공유(Apple AirPlay / 캐스트 기능)도 지원합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning: Logout -->
+            <div class="bg-red-50 border-4 border-red-200 rounded-[2.5rem] p-6 shadow-inner mt-auto">
+                <h4 class="font-black text-red-700 text-lg mb-3 flex items-center gap-2">
+                    <span class="text-2xl">⚠️</span> IMPORTANT: Log Out! / ログアウトのお願い
+                </h4>
+                <div class="text-[11px] font-black text-red-800 leading-relaxed space-y-2 bg-white p-4 rounded-2xl border-2 border-red-100">
+                    <p>【JP】ご自身のアカウント（Netflix等）でログインした場合は、チェックアウト前に<span class="text-red-600 border-b-2 border-red-600">必ずログアウト</span>してください。</p>
+                    <p>【EN】If you log into your personal accounts, please <span class="text-red-600 underline">LOG OUT</span> before check-out.</p>
+                    <p>【CN】如果您登录了个人账号，请在退房前务必<span class="text-red-600">退出登录</span>。</p>
+                    <p>【KR】개인 계정으로 로그인한 경우, 체크아웃 전에 반드시 <span class="text-red-600">로그아웃</span>해 주세요.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 16 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 17: AREA GUIDE -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-indigo-800 border-indigo-800">
+            <span>🗺️</span> 8. Area Guide / 周辺ガイド <span class="text-sm text-indigo-500 font-bold ml-2">/ 周边指南 / 주변 안내</span>
+        </h3>
+
+        <div class="space-y-4">
+            <div class="spot-card border-4 shadow-sm !p-4">
+                <span class="spot-tag">Culture / 文化 <span class="opacity-70 font-normal text-[10px] ml-1">/ 文化 / 문화</span></span>
+                <h4 class="t-jp text-xl mb-1">住吉大社 (Sumiyoshi Taisha Shrine)</h4>
+                <div class="mt-1 space-y-1 text-sm">
+                    <p class="t-jp">日本最古の神社の一つ。美しい「反橋」は必見です（徒歩圏内）。</p>
+                    <p class="t-en font-bold">One of Japan's oldest shrines. The famous red bridge is beautiful.</p>
+                    <p class="t-cn">日本最古老的著名神社之一。著名的朱红色“反桥”非常美丽。</p>
+                    <p class="t-kr">일본에서 가장 오래된 신사 중 하나입니다. 아름다운 '소리하시' 다리는 필수 코스입니다.</p>
+                </div>
+            </div>
+
+            <div class="spot-card border-4 shadow-sm !p-4">
+                <span class="spot-tag">Shop / 商店街 <span class="opacity-70 font-normal text-[10px] ml-1">/ 商店街 / 상점가</span></span>
+                <h4 class="t-jp text-xl mb-1">粉浜商店街 (Kohama Shopping Street)</h4>
+                <div class="mt-1 space-y-1 text-sm">
+                    <p class="t-jp">昔ながらの活気ある商店街。大阪の日常と食べ歩きを楽しめます。</p>
+                    <p class="t-en font-bold">Traditional shopping street. Great for street food and local atmosphere.</p>
+                    <p class="t-cn">怀旧的传统商店街。可以品尝大阪的地道美食，感受当地生活。</p>
+                    <p class="t-kr">전통적인 활기 넘치는 상점가입니다. 오사카의 일상과 길거리 음식을 즐겨보세요.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="spot-card border-4 bg-blue-50/40 !p-4">
+                    <span class="spot-tag bg-blue-100 text-blue-700">Daily / 生活 <span class="opacity-70 font-normal text-[10px] ml-1">/ 购物 / 생활</span></span>
+                    <h4 class="t-jp text-lg font-black mb-1">Shop List</h4>
+                    <div class="text-xs text-gray-600 space-y-1.5 font-bold leading-relaxed">
+                        <p>● Kinsho Store / 近商ストア (Supermarket)</p>
+                        <p>● Conomiya / コノミヤ (Supermarket)</p>
+                        <p>● Lawson / ローソン (Convenience Store)</p>
+                    </div>
+                </div>
+                <div class="spot-card border-4 bg-orange-50/40 !p-4">
+                    <span class="spot-tag bg-orange-100 text-orange-700">Eat / 飲食 <span class="opacity-70 font-normal text-[10px] ml-1">/ 餐饮 / 음식</span></span>
+                    <h4 class="t-jp text-lg font-black mb-1">Local Food</h4>
+                    <div class="text-xs text-gray-600 space-y-1.5 font-bold leading-relaxed">
+                        <p>● Okonomiyaki / お好み焼き <span class="text-[10px] opacity-70">/ 大阪烧 / 오코노미야키</span></p>
+                        <p>● Takoyaki / たこ焼き <span class="text-[10px] opacity-70">/ 章鱼烧 / 타코야키</span></p>
+                        <p>● Many Local Izakayas / 居酒屋 <span class="text-[10px] opacity-70">/ 居酒屋 / 이자카야</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-4 border-indigo-100 p-6 rounded-[2.5rem] bg-indigo-50/30 mt-4 shadow-inner">
+                <h5 class="text-xs font-black uppercase text-indigo-400 border-b-2 border-indigo-100 pb-2 mb-3 tracking-widest">🚃 Access / 交通情報 <span class="opacity-80 normal-case">/ 交通信息 / 교통 정보</span></h5>
+                <div class="text-sm font-black text-indigo-900 leading-relaxed space-y-1">
+                    <p>● Kohama Sta. (Nankai Line) ▶ 15 min to Namba (Downtown)</p>
+                    <p>● 南海本線「粉浜駅」から「なんば」まで直通15分。大阪の中心部へすぐ！</p>
+                    <p>● 从粉浜站乘车15分钟即可到达难波商业中心。</p>
+                    <p>● 난카이선 '고하마역'에서 '난바'까지 직통 15분. 오사카 시내까지 금방입니다!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 17 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 18: CHECK-OUT (独立ページ) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-green-700 border-green-700">
+            <span>🕙</span> 9. Check-out / チェックアウト <span class="text-sm text-green-600 font-bold ml-2">/ 退房 / 체크아웃</span>
+        </h3>
+
+        <div class="space-y-5 flex-1 flex flex-col">
+            <div class="bg-green-50 text-green-900 border-4 border-green-200 text-center py-6 rounded-[2.5rem] shadow-sm mt-2">
+                <p class="text-sm font-black opacity-60 uppercase tracking-widest mb-1">Check-out Time <span class="normal-case opacity-80">/ 退房时间 / 체크아웃 시간</span></p>
+                <p class="text-7xl font-black tracking-tighter">10:00 AM</p>
+                <p class="text-sm font-black mt-2 uppercase italic tracking-widest border-t-2 border-green-200 inline-block pt-2">SHARP / 時間厳守 / 严格准时 / 시간엄수</p>
+            </div>
+
+            <div class="border-4 border-gray-100 p-6 rounded-[2.5rem] bg-white shadow-sm">
+                <h5 class="font-black mb-4 border-b-2 pb-2 text-sm uppercase text-gray-400 tracking-widest">📝 Checklist / 最終確認 <span class="normal-case text-xs ml-2">/ 最终确认 / 최종 확인</span></h5>
+                <div class="grid grid-cols-1 gap-3 text-xs font-black">
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed">
+                            No lost items (Passports, etc.) / 忘れ物なし<br>
+                            <span class="text-[10px] opacity-60">请确认无遗留物品(护照等)。 / 분실물은 없는지 확인해 주세요.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed">
+                            All AC & Lights OFF / 電気・エアコンOFF<br>
+                            <span class="text-[10px] opacity-60">请关闭所有灯光和空调。 / 모든 전등과 에어컨을 꺼주세요.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed">
+                            Windows Locked / 窓の施錠<br>
+                            <span class="text-[10px] opacity-60">请锁好所有窗户。 / 모든 창문을 잠가주세요.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed text-red-600">
+                            TV Logged Out / TV(Netflix等)ログアウト<br>
+                            <span class="text-[10px] opacity-60 text-gray-500">请退出电视上的个人账号。 / TV에서 로그아웃 해주세요.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-4 border-green-100 p-6 rounded-[2.5rem] bg-green-50/40 shadow-inner mt-auto">
+                <h5 class="font-black mb-3 border-b-2 border-green-100 pb-2 text-sm uppercase text-green-700 tracking-widest">🔐 Key Return / 鍵の返却 <span class="normal-case text-xs ml-2">/ 归还钥匙 / 열쇠 반납</span></h5>
+                <div class="text-xs font-bold leading-relaxed text-gray-600 space-y-3">
+                    <p>
+                        <span class="text-blue-600 font-black">1.</span> タブレットで「チェックアウト」ボタンを押す。<br>
+                        <span class="text-[10px] text-gray-500 font-normal">Press "Check-out" button on maneKEY tablet. / 在平板电脑上点击“退房”按钮。 / 태블릿에서 "체크아웃" 버튼을 누릅니다.</span>
+                    </p>
+                    <p>
+                        <span class="text-blue-600 font-black">2.</span> ドアを施錠し、鍵を屋外のキーボックスに戻す。<br>
+                        <span class="text-[10px] text-gray-500 font-normal">Lock the door and put key back in lockbox. / 锁门并将钥匙放回密码箱。 / 문을 잠그고 열쇠를 현관 밖 키박스에 다시 넣습니다.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 18 / 19</span>
+        </div>
+    </div>
+
+    <!-- PAGE 19: EMERGENCY (独立ページ) -->
+    <div class="a4-page">
+        <h3 class="text-3xl font-black section-title flex items-center gap-3 text-red-600 border-red-600">
+            <span>🚨</span> 10. Emergency / 緊急連絡先 <span class="text-sm text-red-500 font-bold ml-2">/ 紧急联系方式 / 긴급 연락처</span>
+        </h3>
+
+        <div class="flex-1 flex flex-col justify-center space-y-10">
+            <div class="grid grid-cols-2 gap-8 text-sm font-black">
+                <div class="border-4 border-gray-200 p-8 rounded-[2.5rem] flex flex-col items-center justify-center bg-white shadow-md text-center">
+                    <span class="text-5xl mb-4">🚓</span>
+                    <p class="uppercase opacity-50 text-xs mb-1">Police / 警察 <span class="normal-case opacity-70">/ 警察 / 경찰</span></p>
+                    <span class="text-blue-600 text-5xl font-black">110</span>
+                </div>
+                <div class="border-4 border-gray-200 p-8 rounded-[2.5rem] flex flex-col items-center justify-center bg-white shadow-md text-center">
+                    <span class="text-5xl mb-4">🚑</span>
+                    <p class="uppercase opacity-50 text-xs mb-1">Ambulance / 救急 <span class="normal-case opacity-70">/ 急救 / 구급</span></p>
+                    <span class="text-red-600 text-5xl font-black">119</span>
+                </div>
+            </div>
+            
+            <div class="border-4 border-blue-600 p-10 rounded-[3rem] bg-blue-600 text-white text-center shadow-2xl mt-8">
+                <span class="text-6xl mb-4 block">📞</span>
+                <p class="text-base font-black opacity-80 mb-2 uppercase tracking-widest">Host Emergency Contact / 房东 / 호스트</p>
+                <p class="text-5xl font-black tracking-wider">080-5127-3918</p>
+            </div>
+            
+            <div class="mt-8 bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 text-center">
+                <p class="text-sm font-bold text-gray-700 leading-relaxed">
+                    緊急時以外のお問い合わせは、予約サイトのメッセージ機能をご利用ください。<br>
+                    <span class="opacity-70 text-xs mt-2 block font-normal leading-relaxed">
+                        For non-emergencies, please message us through the booking platform.<br>
+                        非紧急情况请通过预约平台的发送信息功能联系。<br>
+                        긴급 상황 외의 문의는 예약 사이트의 메시지 기능을 이용해 주세요.
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="text-sm font-black text-gray-400 tracking-widest uppercase">Formont Suminoe 101</span>
+            <span class="text-sm font-black text-gray-400">PAGE 19 / 19</span>
+        </div>
+    </div>
+
+</body>
+</html>
