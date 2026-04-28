@@ -260,6 +260,7 @@
                         <div>
                             <span class="text-xs uppercase font-black opacity-80 tracking-wider">Password / パスワード</span>
                             <span class="text-2xl font-mono font-black block bg-white text-blue-900 px-4 py-2 rounded-xl mt-1 shadow-xl border-2 border-white">KohamaStay101</span>
+                            <span class="text-[10px] font-bold block mt-1.5 text-blue-100 opacity-90">⚠️ 大文字・小文字を区別 / Case-sensitive / 区分大小写 / 대소문자 구분</span>
                         </div>
                     </div>
                     <div class="flex flex-col items-center justify-center bg-white p-4 rounded-2xl border-4 border-blue-400/20">
@@ -513,6 +514,12 @@
                     <span class="block text-xs font-bold mt-1">Please keep all garbage inside your room until check-out.</span>
                     <span class="block text-xs font-bold">请勿将垃圾放在室外。 / 절대로 쓰레기를 밖에 내놓지 마세요.</span>
                 </div>
+
+                <div class="bg-blue-700 text-white rounded-2xl px-5 py-3 text-center shadow-md mb-3">
+                    <p class="font-black text-sm mb-1">🗓 収集日 / Collection Days / 收集日 / 수거일</p>
+                    <p class="text-xs font-bold opacity-95">月・火・水・木・金・土曜日（日曜除く）</p>
+                    <p class="text-[10px] font-bold opacity-80 mt-0.5">Mon–Sat (Except Sunday) / 周一至周六 / 월~토 (일요일 제외)</p>
+                </div>
                 
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Burnable (SVG) -->
@@ -610,13 +617,13 @@
             <!-- Warning Banner -->
             <div class="bg-red-50 border-4 border-red-200 rounded-[1.5rem] p-4 text-center shadow-sm shrink-0">
                 <h4 class="font-black text-red-700 text-xl mb-2 flex items-center justify-center gap-2">
-                    <span class="text-2xl">⚠️</span> Wash & Return / 片付けのお願い <span class="text-sm opacity-80">/ 清理请求 / 정리 안내</span>
+                    <span class="text-2xl">⚠️</span> Wash & Leave / 片付けのお願い <span class="text-sm opacity-80">/ 清理说明 / 정리 안내</span>
                 </h4>
                 <div class="text-[11px] font-bold text-red-900 leading-relaxed space-y-1.5 text-left bg-white p-3 rounded-xl border border-red-100">
-                    <p>【JP】ご使用になった調理器具や食器は、<span class="text-red-600 font-black border-b border-red-600">チェックアウトまでに必ず洗って元の場所にお戻しください</span>。</p>
-                    <p>【EN】Please <span class="text-red-600 font-black">wash all used kitchenware and dishes, and return them to their original places</span> before check-out.</p>
-                    <p>【CN】退房前，请务必清洗所有使用过的厨具和餐具，并放回原处。</p>
-                    <p>【KR】체크아웃 전까지 사용하신 조리기구와 식기는 반드시 씻어서 제자리에 놓아주세요.</p>
+                    <p>【JP】ご使用になった調理器具や食器は、<span class="text-red-600 font-black border-b border-red-600">シンクまたはキッチンカウンターの上にそのままお置きください</span>。片付け・収納はホストが確認後に行います。</p>
+                    <p>【EN】Please <span class="text-red-600 font-black">rinse all used kitchenware and dishes and leave them on the sink or kitchen counter</span>. The host will check and store them after checkout.</p>
+                    <p>【CN】请将使用过的厨具和餐具简单冲洗后，<span class="text-red-600 font-black">放在水槽或厨房台面上即可</span>。清洁收纳工作将由房东确认后完成。</p>
+                    <p>【KR】사용하신 조리기구와 식기는 가볍게 헹구신 후, <span class="text-red-600 font-black">싱크대나 주방 카운터 위에 그대로 놓아주세요</span>. 수납은 호스트가 확인 후 진행합니다.</p>
                 </div>
             </div>
 
@@ -1072,22 +1079,22 @@
                             <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press "入(ON)". / 按"入(ON)"。 / "入(ON)" 버튼을 누릅니다.</span>
                         </div>
                         <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
-                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">2. Select Mode / コース選択</span>
-                            <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗乾</span> または <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗濯</span> を押す。<br>
-                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press 洗乾(Wash&Dry) or 洗濯(Wash). / 按 洗乾 或 洗濯。 / "洗乾(세탁&건조)" 또는 "洗濯(세탁)" 버튼을 누릅니다.</span>
-                        </div>
-                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
-                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">3. Start / スタート</span>
-                            <span class="bg-yellow-300 border border-yellow-500 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">スタート</span> (Start) を押す。<br>
-                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press スタート(Start). / 按 スタート(开始)。 / "スタート(시작)" 버튼을 누릅니다.</span>
-                        </div>
-                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
-                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">4. Detergent / 洗剤・柔軟剤を入れる</span>
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">2. Detergent / 洗剤・柔軟剤を入れる</span>
                             洗剤や柔軟剤を入れ、ふたを確実に閉める。<br>
                             <span class="text-[8.5px] text-gray-500 mt-0.5 block leading-tight">Add detergent/softener and close the lid. (See next page)<br>放入洗涤剂并关盖。(详见下页) / 세제를 넣고 뚜껑을 닫습니다.(다음장 참조)</span>
                         </div>
                     </div>
-                </div>
+<div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">3. Select Mode / コース選択</span>
+                            <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗乾</span> または <span class="bg-white border border-gray-300 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">洗濯</span> を押す。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press 洗乾(Wash&Dry) or 洗濯(Wash). / 按 洗乾 或 洗濯。 / "洗乾(세탁&건조)" 또는 "洗濯(세탁)" 버튼을 누릅니다.</span>
+                        </div>
+                        <div class="bg-blue-50 p-2.5 rounded-xl border-2 border-blue-100">
+                            <span class="text-blue-700 font-black block text-[11px] mb-0.5">4. Start / スタート</span>
+                            <span class="bg-yellow-300 border border-yellow-500 px-1.5 py-0.5 rounded font-black text-gray-800 mx-0.5">スタート</span> (Start) を押す。<br>
+                            <span class="text-[8.5px] text-gray-500 mt-0.5 block">Press スタート(Start). / 按 スタート(开始)。 / "スタート(시작)" 버튼을 누릅니다.</span>
+                        </div>
+                                        </div>
 
                 <!-- Restrictions -->
                 <div class="flex flex-col gap-3">
@@ -1337,7 +1344,7 @@
                 <span class="spot-tag">Culture / 文化 <span class="opacity-70 font-normal text-[10px] ml-1">/ 文化 / 문화</span></span>
                 <h4 class="t-jp text-xl mb-1">住吉大社 (Sumiyoshi Taisha Shrine)</h4>
                 <div class="mt-1 space-y-1 text-sm">
-                    <p class="t-jp">日本最古の神社の一つ。美しい「反橋」は必見です（徒歩圏内）。</p>
+                    <p class="t-jp">日本最古の神社の一つ。美しい「反橋」は必見です。（徒歩約10分・粉浜商店街経由）</p>
                     <p class="t-en font-bold">One of Japan's oldest shrines. The famous red bridge is beautiful.</p>
                     <p class="t-cn">日本最古老的著名神社之一。著名的朱红色“反桥”非常美丽。</p>
                     <p class="t-kr">일본에서 가장 오래된 신사 중 하나입니다. 아름다운 '소리하시' 다리는 필수 코스입니다.</p>
@@ -1360,9 +1367,9 @@
                     <span class="spot-tag bg-blue-100 text-blue-700">Daily / 生活 <span class="opacity-70 font-normal text-[10px] ml-1">/ 购物 / 생활</span></span>
                     <h4 class="t-jp text-lg font-black mb-1">Shop List</h4>
                     <div class="text-xs text-gray-600 space-y-1.5 font-bold leading-relaxed">
-                        <p>● Kinsho Store / 近商ストア (Supermarket)</p>
-                        <p>● Conomiya / コノミヤ (Supermarket)</p>
-                        <p>● Lawson / ローソン (Convenience Store)</p>
+                        <p>● Kinsho Store / 近商ストア <span class="text-blue-600">（徒歩約10分 / 10 min walk）</span></p>
+                        <p>● Conomiya / コノミヤ <span class="text-blue-600">（徒歩約8分 / 8 min walk）</span></p>
+                        <p>● Lawson / ローソン <span class="text-blue-600">（徒歩約5分 / 5 min walk）</span></p>
                     </div>
                 </div>
                 <div class="spot-card border-4 bg-orange-50/40 !p-4">
@@ -1403,35 +1410,49 @@
             <div class="bg-green-50 text-green-900 border-4 border-green-200 text-center py-6 rounded-[2.5rem] shadow-sm mt-2">
                 <p class="text-sm font-black opacity-60 uppercase tracking-widest mb-1">Check-out Time <span class="normal-case opacity-80">/ 退房时间 / 체크아웃 시간</span></p>
                 <p class="text-7xl font-black tracking-tighter">10:00 AM</p>
-                <p class="text-sm font-black mt-2 uppercase italic tracking-widest border-t-2 border-green-200 inline-block pt-2">SHARP / 時間厳守 / 严格准时 / 시간엄수</p>
+                <p class="text-sm font-black mt-2 uppercase italic tracking-widest border-t-2 border-green-200 inline-block pt-2">ON TIME / 時間厳守 / 严格准时 / 시간엄수</p>
             </div>
 
             <div class="border-4 border-gray-100 p-6 rounded-[2.5rem] bg-white shadow-sm">
                 <h5 class="font-black mb-4 border-b-2 pb-2 text-sm uppercase text-gray-400 tracking-widest">📝 Checklist / 最終確認 <span class="normal-case text-xs ml-2">/ 最终确认 / 최종 확인</span></h5>
                 <div class="grid grid-cols-1 gap-3 text-xs font-black">
                     <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
-                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
                         <div class="flex-1 leading-relaxed">
                             No lost items (Passports, etc.) / 忘れ物なし<br>
                             <span class="text-[10px] opacity-60">请确认无遗留物品(护照等)。 / 분실물은 없는지 확인해 주세요.</span>
                         </div>
                     </div>
-                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
-                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
-                        <div class="flex-1 leading-relaxed">
-                            All AC & Lights OFF / 電気・エアコンOFF<br>
-                            <span class="text-[10px] opacity-60">请关闭所有灯光和空调。 / 모든 전등과 에어컨을 꺼주세요.</span>
+                    <div class="flex items-center gap-4 bg-orange-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-2 border-orange-400 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed text-orange-700">
+                            Dishes rinsed &amp; left on counter / 食器を洗ってシンクへ<br>
+                            <span class="text-[10px] opacity-70 text-gray-500">厨具餐具冲洗后置于台面。 / 식기를 헹궈 싱크대에 올려두세요.</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
-                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed">
+                            Garbage bagged &amp; left in room / ゴミは袋にまとめて室内へ<br>
+                            <span class="text-[10px] opacity-60">请将垃圾装袋置于室内。 / 쓰레기를 봉투에 담아 실내에 두세요.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="flex-1 leading-relaxed">
+                            All AC, Lights & Boiler OFF / 電気・エアコン・給湯器OFF<br>
+                            <span class="text-[10px] opacity-60">请关闭所有灯光、空调及热水器。 / 모든 전등·에어컨·보일러를 꺼주세요.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
+                        <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
                         <div class="flex-1 leading-relaxed">
                             Windows Locked / 窓の施錠<br>
                             <span class="text-[10px] opacity-60">请锁好所有窗户。 / 모든 창문을 잠가주세요.</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
-                        <div class="w-5 h-5 border-3 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
+                        <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
                         <div class="flex-1 leading-relaxed text-red-600">
                             TV Logged Out / TV(Netflix等)ログアウト<br>
                             <span class="text-[10px] opacity-60 text-gray-500">请退出电视上的个人账号。 / TV에서 로그아웃 해주세요.</span>
