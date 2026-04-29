@@ -304,7 +304,7 @@
                 <div class="text-[14px] font-bold text-gray-700 mt-4 leading-relaxed">
                     玄関外のキーボックスから鍵を取り出してください。暗証番号は予約詳細をご確認ください。
                     <span class="t-en mt-1 block opacity-80">Get the key from the lockbox outside. See reservation details for code.</span>
-                    <span class="t-cn block opacity-80">请从门口的密码箱取出钥匙。密码请查看预约详情。</span>
+                    <span class="t-cn block opacity-80">请从门口の密码箱取出钥匙。密码请查看预约详情。</span>
                     <span class="t-kr block opacity-80">현관 밖 키박스에서 열쇠를 꺼내주세요. 비밀번호는 예약 상세 정보 확인.</span>
                 </div>
             </div>
@@ -320,43 +320,42 @@
 
             <!-- オートロック解錠 -->
             <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white shadow-sm mt-auto">
-                <h4 class="t-jp text-xl mb-4 border-b-2 pb-2">🚪 オートロック・インターホン / Intercom & Auto-lock</h4>
-                <div class="flex gap-4 items-center">
-                    <div class="flex gap-2 w-5/12 h-44 shrink-0">
-                        <div class="flex-1 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center p-1.5 relative">
-                            <span class="absolute top-1 left-1 bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Entrance</span>
-                            <img src="assets/images/entrance.jpg" alt="エントランス" class="max-w-full max-h-full object-cover" onerror="this.src='https://placehold.co/300x400?text=Entrance'">
+                <h4 class="t-jp text-xl mb-4 border-b-2 pb-2">🚪 オートロックの解錠方法 / How to Unlock</h4>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- 鍵で開ける場合 -->
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-blue-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded shadow-sm">METHOD 1</span>
+                            <span class="text-xs font-black text-blue-900">鍵を使用 / Use Key</span>
                         </div>
-                        <div class="flex-1 rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 flex items-center justify-center p-1.5 relative">
-                            <span class="absolute top-1 left-1 bg-green-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm z-10">Room</span>
-                            <img src="assets/images/intercom.jpg" alt="インターホン" class="max-w-full max-h-full object-contain" onerror="this.src='https://placehold.co/300x400?text=Intercom'">
+                        <div class="rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 h-32 relative mb-3">
+                            <span class="absolute top-1 left-1 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded z-10">Entrance Panel</span>
+                            <img src="assets/images/entrance.jpg" alt="エントランス" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x400?text=Entrance'">
+                        </div>
+                        <div class="text-[10px] text-gray-600 font-bold leading-relaxed space-y-1">
+                            <p>【JP】パネルの鍵穴に鍵を差し込み、右に回して解錠します。</p>
+                            <p>【EN】Insert the key into the panel and turn right to unlock.</p>
+                            <p>【CN】将钥匙插入面板的钥匙孔并向右转动解锁。</p>
+                            <p>【KR】패널의 열쇠 구멍에 열쇠를 넣고 오른쪽으로 돌려 해제합니다.</p>
                         </div>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-1.5 text-center text-xs font-black uppercase mb-3">
-                            <div class="flex-1 bg-white p-2 border-2 border-gray-100 rounded-xl shadow-sm">
-                                <span class="text-blue-600 block text-[9px] mb-0.5">STEP 1</span>
-                                Call 101<br>「101」呼出<br>
-                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">呼叫101 / 호출</span>
-                            </div>
-                            <div class="text-blue-300 text-sm">▶</div>
-                            <div class="flex-1 bg-blue-50 p-2 border-2 border-blue-100 rounded-xl shadow-sm">
-                                <span class="text-blue-600 block text-[9px] mb-0.5">STEP 2</span>
-                                TALK<br>通話<br>
-                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">通话 / 통화</span>
-                            </div>
-                            <div class="text-blue-300 text-sm">▶</div>
-                            <div class="flex-1 bg-green-50 p-2 border-2 border-green-100 rounded-xl shadow-sm">
-                                <span class="text-green-600 block text-[9px] mb-0.5">STEP 3</span>
-                                OPEN<br>解錠 🔑<br>
-                                <span class="text-[8px] text-gray-500 mt-0.5 block lowercase normal-case leading-tight">解锁 / 열림</span>
-                            </div>
+
+                    <!-- インターホンで開ける場合 -->
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-green-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded shadow-sm">METHOD 2</span>
+                            <span class="text-xs font-black text-green-900">室内から解錠 / Intercom</span>
                         </div>
-                        <div class="text-[9px] text-gray-600 font-bold leading-relaxed space-y-1">
-                            <p>【JP】エントランスで「101」を呼び出し、室内の「通話(TALK)」で応答後、「OPEN」で解錠します。</p>
-                            <p>【EN】Call 101 from entrance. Press "TALK" to answer, then "OPEN" to unlock.</p>
-                            <p>【CN】在入口呼叫101。按下“通話”接听后，按“OPEN”解锁大门。</p>
-                            <p>【KR】입구에서 101호 호출 후, 실내에서 "通話"로 응답, "OPEN"을 눌러 해제합니다.</p>
+                        <div class="rounded-xl overflow-hidden bg-gray-50 border-2 border-gray-200 h-32 relative mb-3">
+                            <span class="absolute top-1 left-1 bg-green-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded z-10">Room Intercom</span>
+                            <img src="assets/images/intercom.jpg" alt="インターホン" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/300x400?text=Intercom'">
+                        </div>
+                        <div class="text-[10px] text-gray-600 font-bold leading-relaxed space-y-1">
+                            <p>【JP】「101」を呼び出し、室内で「通話」→「解錠」します。</p>
+                            <p>【EN】Call "101", answer "TALK", then press "OPEN" inside.</p>
+                            <p>【CN】呼叫“101”，室内接听后按“解鎖”按钮。</p>
+                            <p>【KR】'101'을 호출한 뒤, 실내에서 응답 후 '해제'를 누릅니다.</p>
                         </div>
                     </div>
                 </div>
