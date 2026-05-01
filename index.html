@@ -194,6 +194,82 @@
         
         .spot-card { border: 3px solid #f3f4f6; border-radius: 1.25rem; padding: 1.25rem; background: #fff; }
         .spot-tag { font-size: 12px; font-weight: 900; background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 9999px; display: inline-block; margin-bottom: 6px; }
+
+        /* Floating Chatbot Button */
+        .chatbot-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            border: 3px solid white;
+        }
+        .chatbot-fab:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #1e40af;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+        }
+        .chatbot-fab svg {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 2px;
+        }
+        .chatbot-fab-label {
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Tooltip animation */
+        .chatbot-fab::after {
+            content: "Questions? / 質問する";
+            position: absolute;
+            right: 85px;
+            background: rgba(31, 41, 55, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .chatbot-fab:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .chatbot-fab {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+            .chatbot-fab::after {
+                display: none;
+            }
+        }
+        
+        @media print {
+            .chatbot-fab { display: none !important; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -1507,6 +1583,20 @@
                 <p class="text-5xl font-black tracking-wider">080-5127-3918</p>
             </div>
             
+            <div class="bg-blue-50 p-6 rounded-2xl border-4 border-blue-200 text-center shadow-md relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
+                <h4 class="font-black text-blue-800 text-xl mb-2 flex items-center justify-center gap-2">
+                    <span class="text-2xl">🤖</span> AI Chatbot / AIチャット
+                </h4>
+                <p class="text-sm font-bold text-gray-700 mb-4">
+                    滞在中の疑問を24時間いつでもAIが解決します。<br>
+                    <span class="text-[10px] opacity-70 block font-normal">Our AI Chatbot can help resolve your questions 24/7.</span>
+                </p>
+                <a href="https://mastor-prog.github.io/chatbot_suminoe/" target="_blank" class="inline-block bg-blue-600 text-white font-black px-8 py-3 rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+                    Open Chat / チャットを起動
+                </a>
+            </div>
+            
             <div class="mt-8 bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 text-center">
                 <p class="text-sm font-bold text-gray-700 leading-relaxed">
                     緊急時以外のお問い合わせは、予約サイトのメッセージ機能をご利用ください。<br>
@@ -1524,6 +1614,17 @@
             <span class="text-sm font-black text-gray-400">PAGE 19 / 19</span>
         </div>
     </div>
+
+    <!-- Floating Chatbot Button -->
+    <a href="https://mastor-prog.github.io/chatbot_suminoe/" target="_blank" class="chatbot-fab no-print" id="chatbot-button">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1272L3 21L7.8728 20C9.10898 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="12" r="1" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+            <circle cx="16" cy="12" r="1" fill="currentColor"/>
+        </svg>
+        <span class="chatbot-fab-label">Chat</span>
+    </a>
 
 </body>
 </html>
