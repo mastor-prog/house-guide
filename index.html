@@ -22,7 +22,7 @@
             min-height: 297mm; /* Web閲覧を考慮し、固定高さではなくmin-heightに変更 */
             background: white;
             margin: 20px auto;
-            padding: 12mm 18mm 25mm 18mm; /* フッターと被らないように下部の余白を確保 */
+            padding: 12mm 18mm 28mm 18mm; /* フッターと被らないように下部の余白を広めに確保 */
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             box-sizing: border-box;
             position: relative;
@@ -195,87 +195,159 @@
         .spot-card { border: 3px solid #f3f4f6; border-radius: 1.25rem; padding: 1.25rem; background: #fff; }
         .spot-tag { font-size: 12px; font-weight: 900; background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 9999px; display: inline-block; margin-bottom: 6px; }
 
-        /* Floating Chatbot Button */
-        .chatbot-fab {
+
+
+        /* Floating Navigation */
+        .floating-nav {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background-color: #2563eb;
-            color: white;
-            border-radius: 50%;
+            bottom: 25px; /* 下部に配置 */
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 14px 36px;
+            border-radius: 999px;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15); /* 影を上向きに */
+            z-index: 5000;
+            display: flex;
+            gap: 32px;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .floating-nav:hover {
+            box-shadow: 0 -15px 50px rgba(0,0,0,0.2);
+            transform: translateX(-50%) translateY(-4px);
+        }
+        .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            border: 3px solid white;
+            color: #4b5563; /* 落ち着いたダークグレー */
+            transition: all 0.2s;
+            cursor: pointer;
+            min-width: 45px;
         }
-        .chatbot-fab:hover {
-            transform: scale(1.1) translateY(-5px);
-            background-color: #1e40af;
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+        .nav-item:hover {
+            color: #2563eb;
+            transform: scale(1.1);
         }
-        .chatbot-fab svg {
-            width: 30px;
-            height: 30px;
-            margin-bottom: 2px;
+        .nav-item svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
         }
-        .chatbot-fab-label {
-            font-size: 9px;
+        .nav-item span {
+            font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.12em;
         }
-        
-        /* Tooltip animation */
-        .chatbot-fab::after {
-            content: "Questions? / 質問する";
-            position: absolute;
-            right: 85px;
-            background: rgba(31, 41, 55, 0.9);
+
+        /* Chat Button */
+        .chat-fab {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             color: white;
-            padding: 8px 15px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
+            padding: 12px 28px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            z-index: 5000;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float-btn 3s ease-in-out infinite;
+        }
+        @keyframes float-btn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .chat-fab:hover {
+            transform: scale(1.05) translateY(-12px);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        }
+        .chat-fab svg {
+            width: 22px;
+            height: 22px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        .chat-fab span {
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             white-space: nowrap;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.3s ease;
-            pointer-events: none;
         }
-        .chatbot-fab:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
+
         @media screen and (max-width: 768px) {
-            .chatbot-fab {
+            .floating-nav {
+                top: auto;
                 bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
+                padding: 8px 20px;
+                gap: 16px;
             }
-            .chatbot-fab::after {
-                display: none;
+            .chat-fab {
+                bottom: 20px;
+                right: 15px;
+                padding: 10px 18px;
+                width: auto;
+                height: auto;
+            }
+            .chat-fab svg {
+                width: 20px;
+                height: 20px;
+            }
+            .chat-fab span {
+                font-size: 13px;
             }
         }
-        
+
         @media print {
-            .chatbot-fab { display: none !important; }
+            .floating-nav, .chat-fab {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body class="antialiased">
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-nav no-print">
+        <a href="#top" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+            <span>TOP</span>
+        </a>
+        <a href="#wifi" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="18" r="2"/><path d="M12 14c-2.21 0-4.21.9-5.66 2.34l1.42 1.42C8.71 16.81 10.26 16 12 16c1.74 0 3.29.81 4.24 1.76l1.42-1.42C16.21 14.9 14.21 14 12 14zm0-4c-3.31 0-6.31 1.34-8.48 3.52l1.42 1.42C6.73 13.15 9.23 12 12 12s5.27 1.15 7.06 2.94l1.42-1.42C18.31 11.34 15.31 10 12 10zm0-4c-4.42 0-8.42 1.79-11.31 4.69l1.42 1.42C4.54 9.68 8.1 8 12 8s7.46 1.68 9.89 4.11l1.42-1.42C20.42 7.79 16.42 6 12 6z"/></svg>
+            <span>WI-FI</span>
+        </a>
+        <a href="#rules" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg>
+            <span>RULES</span>
+        </a>
+        <a href="#emergency" class="nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="transform: scaleX(-1) rotate(-10deg);"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.57c-2.83-1.45-5.13-3.76-6.59-6.59l1.57-1.57c.27-.27.35-.65.24-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+            <span>SOS</span>
+        </a>
+    </nav>
+
+    <!-- Floating Chat Button -->
+    <a href="https://mastor-prog.github.io/chatbot_suminoe/" class="chat-fab no-print" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>AI CHAT</span>
+    </a>
 
     <!-- PAGE 1: COVER & WELCOME -->
-    <div class="a4-page">
+    <div class="a4-page" id="top">
         <div class="flex-1 flex flex-col items-center justify-center text-center">
             <div class="w-full max-w-lg h-56 rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl border-4 border-white shrink-0">
                 <img src="assets/images/cover.jpg" alt="Cover Image" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x400?text=Cover+Image'">
@@ -283,12 +355,34 @@
             <h1 class="text-6xl font-black text-blue-900 mb-4 tracking-tighter">HOUSE GUIDE</h1>
             <p class="text-2xl font-bold text-gray-500 mb-12 tracking-widest uppercase italic">Formont Suminoe 101</p>
             
-            <div class="w-full max-w-xl space-y-8">
-                <div class="bg-blue-50 p-8 rounded-[2rem] border-2 border-blue-100 shadow-sm text-left">
-                    <p class="t-jp text-2xl mb-4">🌸 ようこそ大阪へ！</p>
-                    <p class="t-en text-xl">Welcome to Osaka! Have a wonderful stay.</p>
-                    <p class="t-cn text-lg">欢迎来到大阪！祝您入住愉快。</p>
-                    <p class="t-kr text-lg">오사카에 오신 것을 환영합니다! 즐거운 시간 되세요.</p>
+            <div class="w-full max-w-xl space-y-6">
+                <!-- Welcome Card -->
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-lg border border-blue-200 overflow-hidden">
+                    <div class="px-6 pt-6 pb-4 text-center">
+                        <p class="text-2xl font-black text-blue-900 mb-1">🌸 ようこそ大阪へ！</p>
+                        <p class="text-[11px] text-blue-600 font-bold tracking-wider">Welcome to Osaka! / 欢迎来到大阪 / 오사카에 오신 것을 환영합니다</p>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <div class="bg-white rounded-2xl p-5 flex items-center gap-5 border border-gray-100 shadow-sm">
+                            <div class="flex-1 text-left">
+                                <h4 class="font-black text-gray-800 text-base mb-1 flex items-center gap-2">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                    AI Support Chat
+                                </h4>
+                                <p class="t-jp text-xs text-gray-500 mb-2">24時間いつでも質問できるAIチャット</p>
+                                <p class="text-[10px] text-gray-400 leading-snug">
+                                    Scan to ask about rules, appliances, or local tips!<br>
+                                    掃碼詢問房屋守則、家電或當地資訊！
+                                </p>
+                            </div>
+                            <div class="flex flex-col items-center shrink-0">
+                                <div class="bg-white p-1.5 rounded-xl border border-gray-200 shadow-sm">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://mastor-prog.github.io/chatbot_suminoe/" class="w-[72px] h-[72px]" alt="QR Code">
+                                </div>
+                                <span class="text-blue-700 text-[7px] font-black mt-1.5 uppercase tracking-widest">Scan Me / 掃碼</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -299,7 +393,7 @@
     </div>
 
     <!-- PAGE 2: BASIC INFO & WI-FI -->
-    <div class="a4-page">
+    <div class="a4-page" id="wifi">
         <h3 class="text-3xl font-black section-title flex items-center gap-3">
             <span class="text-blue-600">🏠</span> 1. Information & Wi-Fi / 基本情報
         </h3>
@@ -507,7 +601,7 @@
     </div>
 
     <!-- PAGE 5: HOUSE RULES -->
-    <div class="a4-page">
+    <div class="a4-page" id="rules">
         <h3 class="text-3xl font-black section-title flex items-center gap-3 text-red-700 border-red-700">
             <span>⚠️</span> 4. House Rules / ハウスルール <span class="text-sm text-red-500 font-bold ml-2">/ 房屋守则 / 숙소 이용규칙</span>
         </h3>
@@ -596,81 +690,63 @@
                     <p class="text-[10px] font-bold opacity-80 mt-0.5">Mon–Sat (Except Sunday) / 周一至周六 / 월~토 (일요일 제외)</p>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-3">
                     <!-- Burnable (SVG) -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
-                        <svg class="w-14 h-14 mb-3 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="bg-white p-3 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-12 h-12 mb-2 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/>
                         </svg>
-                        <p class="t-jp text-center text-sm">可燃ゴミ</p>
-                        <p class="t-en text-center text-xs">Burnable</p>
-                        <p class="t-cn text-center text-xs">可燃物</p>
-                        <p class="t-kr text-center text-xs">가연성</p>
+                        <p class="t-jp text-center text-[12px] leading-none mb-1">可燃ゴミ</p>
+                        <p class="text-center text-[10px] text-gray-500 leading-tight">Burnable / 可燃物 / 가연성</p>
                     </div>
                     <!-- Plastic (SVG) -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
-                        <svg class="w-14 h-14 mb-3 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="bg-white p-3 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-12 h-12 mb-2 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
                         </svg>
-                        <p class="t-jp text-center text-sm">プラ・容器</p>
-                        <p class="t-en text-center text-xs">Plastic</p>
-                        <p class="t-cn text-center text-xs">塑料</p>
-                        <p class="t-kr text-center text-xs">플라스틱</p>
+                        <p class="t-jp text-center text-[12px] leading-none mb-1">プラ・容器</p>
+                        <p class="text-center text-[10px] text-gray-500 leading-tight">Plastic / 塑料 / 플라스틱</p>
                     </div>
                     <!-- Can / Glass (SVG) -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
-                        <svg class="w-14 h-14 mb-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="bg-white p-3 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-12 h-12 mb-2 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/>
                         </svg>
-                        <p class="t-jp text-center text-sm">缶・ビン</p>
-                        <p class="t-en text-center text-xs">Can / Glass</p>
-                        <p class="t-cn text-center text-xs">罐 · 瓶</p>
-                        <p class="t-kr text-center text-xs">캔 · 병</p>
+                        <p class="t-jp text-center text-[12px] leading-none mb-1">缶・ビン</p>
+                        <p class="text-center text-[10px] text-gray-500 leading-tight">Can & Glass / 罐 · 瓶 / 캔 · 병</p>
                     </div>
                     <!-- Pet Bottle (SVG) -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
-                        <svg class="w-14 h-14 mb-3 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="bg-white p-3 rounded-2xl border-2 border-blue-200 flex flex-col items-center shadow-sm">
+                        <svg class="w-12 h-12 mb-2 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M15.2 6.3V4.5c0-.8-.7-1.5-1.5-1.5H10c-.8 0-1.5.7-1.5 1.5v1.8c-.8.2-1.5 1-1.5 1.8v11.9c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8.1c0-.8-.7-1.6-1.5-1.8z"/>
                             <path d="M10 3h4"/><path d="M7 11h10"/><path d="M7 15h10"/>
                         </svg>
-                        <p class="t-jp text-center text-sm">ペットボトル</p>
-                        <p class="t-en text-center text-xs">Pet Bottle</p>
-                        <p class="t-cn text-center text-xs">塑料瓶</p>
-                        <p class="t-kr text-center text-xs">페트병</p>
+                        <p class="t-jp text-center text-[12px] leading-none mb-1">ペットボトル</p>
+                        <p class="text-center text-[10px] text-gray-500 leading-tight">Pet Bottle / 塑料瓶 / 페트병</p>
                     </div>
                 </div>
             </div>
 
-            <div class="border-4 border-gray-100 rounded-[2rem] p-6 bg-white">
-                <h4 class="t-jp text-xl mb-4 border-b-2 pb-2">🧃 ペットボトルの出し方 / PET Bottles <span class="text-sm ml-2 font-bold text-gray-500">/ 处理方法 / 버리는 법</span></h4>
-                <div class="flex gap-6 items-center px-4">
-                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-sm font-black mb-1 uppercase text-blue-600">1. CAP</div>
-                        <div class="text-[11px] text-gray-600 font-black">
-                            キャップを外す<br>
-                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Remove Cap / 拧下盖子 / 뚜껑 제거</span>
-                        </div>
+            <div class="border-4 border-gray-100 rounded-[1.5rem] p-4 bg-white">
+                <h4 class="t-jp text-lg mb-3 border-b-2 pb-1">🧃 ペットボトルの出し方 <span class="text-xs ml-2 font-bold text-gray-500">/ PET Bottles / 处理方法</span></h4>
+                <div class="flex gap-4 items-center px-2">
+                    <div class="flex-1 text-center bg-gray-50 p-2 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-[12px] font-black mb-0.5 uppercase text-blue-600 leading-none">1. CAP</div>
+                        <div class="text-[10px] text-gray-600 font-black leading-tight">キャップを外す<br><span class="text-[8px] opacity-60">Remove Cap</span></div>
                     </div>
-                    <div class="text-gray-300 text-2xl font-black">▶</div>
-                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-sm font-black mb-1 uppercase text-blue-600">2. LABEL</div>
-                        <div class="text-[11px] text-gray-600 font-black">
-                            ラベルを剥がす<br>
-                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Remove Label / 撕下标签 / 라벨 제거</span>
-                        </div>
+                    <div class="text-gray-300 text-xl font-black">▶</div>
+                    <div class="flex-1 text-center bg-gray-50 p-2 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-[12px] font-black mb-0.5 uppercase text-blue-600 leading-none">2. LABEL</div>
+                        <div class="text-[10px] text-gray-600 font-black leading-tight">ラベルを剥がす<br><span class="text-[8px] opacity-60">Remove Label</span></div>
                     </div>
-                    <div class="text-gray-300 text-2xl font-black">▶</div>
-                    <div class="flex-1 text-center bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100">
-                        <div class="text-sm font-black mb-1 uppercase text-blue-600">3. CRUSH</div>
-                        <div class="text-[11px] text-gray-600 font-black">
-                            潰す<br>
-                            <span class="text-[9px] font-bold opacity-80 mt-1 block">Crush / 压扁 / 찌그러뜨리기</span>
-                        </div>
+                    <div class="text-gray-300 text-xl font-black">▶</div>
+                    <div class="flex-1 text-center bg-gray-50 p-2 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-[12px] font-black mb-0.5 uppercase text-blue-600 leading-none">3. CRUSH</div>
+                        <div class="text-[10px] text-gray-600 font-black leading-tight">潰す<br><span class="text-[8px] opacity-60">Crush</span></div>
                     </div>
                 </div>
-                <div class="text-[11px] text-gray-500 mt-4 text-center font-bold px-2 space-y-1">
+                <div class="text-[10px] text-gray-500 mt-2 text-center font-bold px-2">
                     <p>【JP】キャップとラベルは「プラ・容器」に捨ててください。</p>
-                    <p class="italic text-gray-400">Cap and label go into "PLASTIC" garbage. / 盖子和标签请放入“塑料”垃圾。 / 캡과 라벨은 "플라스틱" 쓰레기통에 버려주세요.</p>
                 </div>
             </div>
         </div>
@@ -1389,15 +1465,13 @@
             </div>
 
             <!-- Warning: Logout -->
-            <div class="bg-red-50 border-4 border-red-200 rounded-[2.5rem] p-6 shadow-inner mt-auto">
-                <h4 class="font-black text-red-700 text-lg mb-3 flex items-center gap-2">
-                    <span class="text-2xl">⚠️</span> IMPORTANT: Log Out! / ログアウトのお願い
+            <div class="bg-red-50 border-4 border-red-200 rounded-[2rem] p-4 shadow-inner mt-auto">
+                <h4 class="font-black text-red-700 text-base mb-2 flex items-center gap-2">
+                    <span class="text-xl">⚠️</span> IMPORTANT: Log Out! / ログアウトのお願い
                 </h4>
-                <div class="text-[11px] font-black text-red-800 leading-relaxed space-y-2 bg-white p-4 rounded-2xl border-2 border-red-100">
-                    <p>【JP】ご自身のアカウント（Netflix等）でログインした場合は、チェックアウト前に<span class="text-red-600 border-b-2 border-red-600">必ずログアウト</span>してください。</p>
-                    <p>【EN】If you log into your personal accounts, please <span class="text-red-600 underline">LOG OUT</span> before check-out.</p>
-                    <p>【CN】如果您登录了个人账号，请在退房前务必<span class="text-red-600">退出登录</span>。</p>
-                    <p>【KR】개인 계정으로 로그인한 경우, 체크아웃 전에 반드시 <span class="text-red-600">로그아웃</span>해 주세요.</p>
+                <div class="text-[10px] font-black text-red-800 leading-relaxed space-y-1 bg-white p-3 rounded-xl border-2 border-red-100">
+                    <p>【JP】ご自身のアカウントでログインした場合は、<span class="text-red-600 border-b-2 border-red-600">必ずログアウト</span>してください。</p>
+                    <p class="text-[9px] opacity-80">Please <span class="text-red-600 underline">LOG OUT</span> before check-out. / 退出登录 / 로그아웃 해주세요.</p>
                 </div>
             </div>
         </div>
@@ -1443,8 +1517,8 @@
                     <h4 class="t-jp text-lg font-black mb-1">Shop List</h4>
                     <div class="text-xs text-gray-600 space-y-1.5 font-bold leading-relaxed">
                         <p>● Kinsho Store / 近商ストア <span class="text-blue-600">（徒歩約10分 / 10 min walk）</span></p>
-                        <p>● Conomiya / コノミヤ <span class="text-blue-600">（徒歩約8分 / 8 min walk）</span></p>
-                        <p>● Lawson / ローソン <span class="text-blue-600">（徒歩約5分 / 5 min walk）</span></p>
+                        <p>● Conomiya / コノミヤ <span class="text-blue-600">（徒歩約6分 / 6 min walk）</span></p>
+                        <p>● Lawson / ローソン <span class="text-blue-600">（徒歩約3分 / 3 min walk）</span></p>
                     </div>
                 </div>
                 <div class="spot-card border-4 bg-orange-50/40 !p-4">
@@ -1508,8 +1582,8 @@
                     <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
                         <div class="w-5 h-5 border-2 border-green-500 rounded-lg flex items-center justify-center shrink-0"></div>
                         <div class="flex-1 leading-relaxed">
-                            Garbage bagged - in room or collection box / ゴミは袋にまとめて室内 or 収集ボックスへ<br>
-                            <span class="text-[10px] opacity-60">请将垃圾装袋，放入室内或楼前收集箱。 / 쓰레기를 봉투에 담아 실내 또는 수거함에 넣어주세요.</span>
+                            Garbage bagged & placed in collection box / ゴミは袋にまとめ建物前の収集ボックスへ<br>
+                            <span class="text-[10px] opacity-60">请将垃圾装袋，放入楼前收集箱。 / 쓰레기를 봉투에 담아 건물 앞 수거함에 넣어주세요.</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 bg-gray-50 p-3 rounded-2xl">
@@ -1536,16 +1610,16 @@
                 </div>
             </div>
 
-            <div class="border-4 border-green-100 p-6 rounded-[2.5rem] bg-green-50/40 shadow-inner mt-auto">
-                <h5 class="font-black mb-3 border-b-2 border-green-100 pb-2 text-sm uppercase text-green-700 tracking-widest">🔐 Key Return / 鍵の返却 <span class="normal-case text-xs ml-2">/ 归还钥匙 / 열쇠 반납</span></h5>
-                <div class="text-xs font-bold leading-relaxed text-gray-600 space-y-3">
+            <div class="border-4 border-green-100 p-4 rounded-[2rem] bg-green-50/40 shadow-inner mt-auto">
+                <h5 class="font-black mb-2 border-b-2 border-green-100 pb-1 text-[13px] uppercase text-green-700 tracking-widest">🔐 Key Return / 鍵の返却 <span class="normal-case text-[10px] ml-2 opacity-70">/ 归还钥匙</span></h5>
+                <div class="text-[11px] font-bold leading-relaxed text-gray-600 space-y-2">
                     <p>
                         <span class="text-blue-600 font-black">1.</span> タブレットで「チェックアウト」ボタンを押す。<br>
-                        <span class="text-[10px] text-gray-500 font-normal">Press "Check-out" button on maneKEY tablet. / 在平板电脑上点击“退房”按钮。 / 태블릿에서 "체크아웃" 버튼을 누릅니다.</span>
+                        <span class="text-[9px] text-gray-500 font-normal">Press "Check-out" on tablet. / 在平板上点击退房 / 태블릿 체크아웃</span>
                     </p>
                     <p>
                         <span class="text-blue-600 font-black">2.</span> ドアを施錠し、鍵を屋外のキーボックスに戻す。<br>
-                        <span class="text-[10px] text-gray-500 font-normal">Lock the door and put key back in lockbox. / 锁门并将钥匙放回密码箱。 / 문을 잠그고 열쇠를 현관 밖 키박스에 다시 넣습니다.</span>
+                        <span class="text-[9px] text-gray-500 font-normal">Lock door & return key to lockbox. / 锁门并归还钥匙 / 문을 잠그고 키박스 반납</span>
                     </p>
                 </div>
             </div>
@@ -1558,7 +1632,7 @@
     </div>
 
     <!-- PAGE 19: EMERGENCY (独立ページ) -->
-    <div class="a4-page">
+    <div class="a4-page" id="emergency">
         <h3 class="text-3xl font-black section-title flex items-center gap-3 text-red-600 border-red-600">
             <span>🚨</span> 10. Emergency / 緊急連絡先 <span class="text-sm text-red-500 font-bold ml-2">/ 紧急联系方式 / 긴급 연락처</span>
         </h3>
@@ -1577,24 +1651,38 @@
                 </div>
             </div>
             
-            <div class="border-4 border-blue-600 p-10 rounded-[3rem] bg-blue-600 text-white text-center shadow-2xl mt-8">
-                <span class="text-6xl mb-4 block">📞</span>
-                <p class="text-base font-black opacity-80 mb-2 uppercase tracking-widest">Host Emergency Contact / 房东 / 호스트</p>
-                <p class="text-5xl font-black tracking-wider">080-5127-3918</p>
+            <div class="grid grid-cols-1 gap-6 mt-8">
+                <div class="border-4 border-blue-600 p-8 rounded-[2.5rem] bg-blue-600 text-white text-center shadow-xl">
+                    <p class="text-xs font-black opacity-80 mb-1 uppercase tracking-widest">Host / 房东 / 호스트</p>
+                    <p class="text-4xl font-black tracking-wider">080-5127-3918</p>
+                </div>
+                <div class="border-4 border-gray-800 p-6 rounded-[2.5rem] bg-gray-800 text-white text-center shadow-lg">
+                    <p class="text-[10px] font-black opacity-80 mb-1 uppercase tracking-widest">24h Support (Equipment/Emergency) / 24時間窓口（設備故障・緊急）</p>
+                    <p class="text-2xl font-black tracking-wider">050-3310-1240</p>
+                    <p class="text-[9px] mt-1 opacity-70">Key Code: 2632-4965-0</p>
+                </div>
             </div>
             
-            <div class="bg-blue-50 p-6 rounded-2xl border-4 border-blue-200 text-center shadow-md relative overflow-hidden group">
-                <div class="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
-                <h4 class="font-black text-blue-800 text-xl mb-2 flex items-center justify-center gap-2">
-                    <span class="text-2xl">🤖</span> AI Chatbot / AIチャット
-                </h4>
-                <p class="text-sm font-bold text-gray-700 mb-4">
-                    滞在中の疑問を24時間いつでもAIが解決します。<br>
-                    <span class="text-[10px] opacity-70 block font-normal">Our AI Chatbot can help resolve your questions 24/7.</span>
-                </p>
-                <a href="https://mastor-prog.github.io/chatbot_suminoe/" target="_blank" class="inline-block bg-blue-600 text-white font-black px-8 py-3 rounded-full hover:bg-blue-700 transition-colors shadow-lg">
-                    Open Chat / チャットを起動
-                </a>
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-200 shadow-lg overflow-hidden">
+                <div class="p-6 flex items-center gap-5">
+                    <div class="flex-1">
+                        <h4 class="font-black text-gray-800 text-lg mb-1 flex items-center gap-2">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            AI Chatbot
+                        </h4>
+                        <p class="t-jp text-sm text-gray-600 mb-1">滞在中の疑問を24時間AIが解決します</p>
+                        <p class="text-[10px] text-gray-400 leading-snug">Our AI chatbot can help resolve your questions anytime.</p>
+                        <a href="https://mastor-prog.github.io/chatbot_suminoe/" target="_blank" class="inline-block bg-blue-600 text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-blue-700 transition-colors shadow-md mt-3">
+                            💬 Open Chat / チャットを起動
+                        </a>
+                    </div>
+                    <div class="flex flex-col items-center shrink-0">
+                        <div class="bg-white p-1.5 rounded-xl border border-gray-200 shadow-sm">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://mastor-prog.github.io/chatbot_suminoe/" class="w-[72px] h-[72px]" alt="QR Code">
+                        </div>
+                        <span class="text-blue-700 text-[7px] font-black mt-1.5 uppercase tracking-widest">Scan Me / 掃碼</span>
+                    </div>
+                </div>
             </div>
             
             <div class="mt-8 bg-gray-50 p-6 rounded-2xl border-2 border-gray-200 text-center">
@@ -1614,17 +1702,6 @@
             <span class="text-sm font-black text-gray-400">PAGE 19 / 19</span>
         </div>
     </div>
-
-    <!-- Floating Chatbot Button -->
-    <a href="https://mastor-prog.github.io/chatbot_suminoe/" target="_blank" class="chatbot-fab no-print" id="chatbot-button">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1272L3 21L7.8728 20C9.10898 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="8" cy="12" r="1" fill="currentColor"/>
-            <circle cx="12" cy="12" r="1" fill="currentColor"/>
-            <circle cx="16" cy="12" r="1" fill="currentColor"/>
-        </svg>
-        <span class="chatbot-fab-label">Chat</span>
-    </a>
 
 </body>
 </html>
