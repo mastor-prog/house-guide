@@ -690,18 +690,31 @@
         </h3>
 
         <div class="space-y-4">
-            <div class="bg-blue-50 p-6 rounded-[2rem] border-2 border-blue-100 shadow-sm">
-                <p class="text-xl font-black text-blue-900 text-center mb-3 uppercase tracking-wider">Use the Garbage Box Outside! <br><span class="text-base">/ 建物前のゴミ収集ボックスへ / 使用室外垃圾箱 / 외부 쓰레기함 이용</span></p>
-                <div class="bg-green-600 text-white text-base font-black p-4 rounded-xl text-center mb-4 shadow-md">
-                    🗑️ 建物前のゴミ収集ボックスをご利用ください。
-                    <span class="block text-xs font-bold mt-1">Please use the garbage collection box in front of the building. Separate your garbage before disposal.</span>
-                    <span class="block text-xs font-bold">请使用楼前的垃圾收集箱，并分类投放。 / 건물 앞 쓰레기 수거함을 이용해 주세요. 분리배출 필수.</span>
+            <div class="bg-blue-50 p-4 rounded-[2rem] border-2 border-blue-100 shadow-sm">
+                <p class="text-lg font-black text-blue-900 text-center mb-2 uppercase tracking-wider">Use the Garbage Box Outside! <br><span class="text-xs">/ 建物前のゴミ収集ボックスへ / 使用室外垃圾箱 / 외부 쓰레기함 이용</span></p>
+                
+                <!-- ゴミ収集ボックス写真付き案内 -->
+                <div class="flex gap-4 items-center bg-white p-3 rounded-2xl border border-blue-100 shadow-sm mb-3">
+                    <div class="w-40 h-32 rounded-xl overflow-hidden border-2 border-blue-200 shrink-0 bg-gray-100 shadow-sm relative">
+                        <span class="absolute top-1 left-1 bg-blue-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded z-10">Garbage Box</span>
+                        <img src="assets/images/garbage_box.jpg" alt="建物前のゴミ収集ボックス" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/300x300?text=Garbage+Box'">
+                    </div>
+                    <div class="flex-1 space-y-1.5">
+                        <div class="bg-green-600 text-white text-xs font-black p-2.5 rounded-xl shadow-sm leading-tight">
+                            🗑️ 建物前のゴミ収集ボックスをご利用ください。
+                        </div>
+                        <div class="text-[10px] text-gray-700 font-bold leading-tight space-y-0.5">
+                            <p>【EN】Please use the garbage collection box in front of the building.</p>
+                            <p>【CN】请使用楼前的垃圾收集箱，并分类投放。</p>
+                            <p>【KR】건물 앞 쓰레기 수거함을 이용해 주세요.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-blue-700 text-white rounded-2xl px-5 py-3 text-center shadow-md mb-3">
-                    <p class="font-black text-sm mb-1">🗓 収集日 / Collection Days / 收集日 / 수거일</p>
+                <div class="bg-blue-700 text-white rounded-2xl px-4 py-2 text-center shadow-md mb-3">
+                    <p class="font-black text-xs mb-0.5">🗓 収集日 / Collection Days / 收集日 / 수거일</p>
                     <p class="text-xs font-bold opacity-95">月・火・水・木・金・土曜日（日曜除く）</p>
-                    <p class="text-[10px] font-bold opacity-80 mt-0.5">Mon–Sat (Except Sunday) / 周一至周六 / 월~토 (일요일 제외)</p>
+                    <p class="text-[9px] font-bold opacity-80 mt-0.5">Mon–Sat (Except Sunday) / 周一至周六 / 월~토 (일요일 제외)</p>
                 </div>
                 
                 <div class="grid grid-cols-2 gap-3">
